@@ -31,9 +31,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($categories as $category): ?>
                                 <tr class="odd gradeX">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 4.0</td>
+                                    <td><?php echo $category['id'] ?> </td>
+                                    <td><?php echo $category['description'] ?></td>
                                     <td>Win 95+</td>
                                     <td>4</td>
                                     <td>
@@ -41,16 +42,7 @@
                                         <a href="<?= base_url('admin/categories/delete/1') ?>" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
-                                <tr class="even gradeC">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 5.0</td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>
-                                        <a href="<?= base_url('admin/categories/edit/2') ?>" class="btn btn-info">edit</a>  
-                                        <a href="<?= base_url('admin/categories/delete/2') ?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
+                                <?php endforeach ?>
                             </tbody>
                             <tfooter>
                                 <tr>
