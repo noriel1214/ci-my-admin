@@ -31,26 +31,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($brands as $brand): ?>
                                 <tr class="odd gradeX">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 4.0</td>
-                                    <td>Win 95+</td>
-                                    <td>4</td>
+                                    <td><?php echo $brand['id'] ?></td>
+                                    <td><?php echo $brand['description'] ?></td>
+                                    <td><?php echo $brand['created_from_ip'] ?></td>
+                                    <td><?php echo $brand['updated_from_ip'] ?></td>
                                     <td>
-                                        <a href="<?=base_url('admin/brands/edit/1')?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/brands/delete/1')?>" class="btn btn-danger">delete</a>
+                                        <a href="<?=base_url('admin/brands/edit/'.$brand['id'])?>" class="btn btn-info">edit</a>  
+                                        <a href="<?=base_url('admin/brands/delete/'.$brand['id'])?>" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
-                                <tr class="even gradeC">
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 5.0</td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>
-                                        <a href="<?=base_url('admin/brands/edit/2')?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/brands/delete/2')?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
+                                <?php endforeach; ?>
                             </tbody>
                             <tfooter>
                                 <tr>

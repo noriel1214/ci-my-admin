@@ -18,14 +18,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form">
+                            <form role="form" method="POST" action="<?= base_url('admin/categories/edit/'.$category->id) ?>">
                                 <div class="form-group">
                                     <label>Category Id Input</label>
                                     <input class="form-control" value="1" placeholder="Auto generated" disabled="1">
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <input class="form-control" value="Kids wear" placeholder="Enter brand description">
+                                    <input id="description" name="description" class="form-control" value="<?php echo $category->description ?>" placeholder="Enter brand description">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit Button</button>

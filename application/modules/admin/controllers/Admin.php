@@ -4,6 +4,11 @@ class Admin extends MY_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->library(array('ion_auth'));
+
+        if (!$this->ion_auth->logged_in()) {
+            redirect('/auth', 'refresh');
+        }        
     }
 
     public function index() {

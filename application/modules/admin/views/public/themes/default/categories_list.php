@@ -38,11 +38,11 @@
                                     <td>Win 95+</td>
                                     <td>4</td>
                                     <td>
-                                        <a href="<?= base_url('admin/categories/edit/1') ?>" class="btn btn-info">edit</a>  
-                                        <a href="<?= base_url('admin/categories/delete/1') ?>" class="btn btn-danger">delete</a>
+                                        <a href="<?= base_url('admin/categories/edit/'.$category['id']) ?>" class="btn btn-info">edit</a>  
+                                        <a href="<?= base_url('admin/categories/delete/'.$category['id']) ?>" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
-                                <?php endforeach ?>
+                                <?php endforeach; ?>
                             </tbody>
                             <tfooter>
                                 <tr>
