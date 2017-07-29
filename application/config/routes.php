@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | Please see the user guide for complete details:
 |
-|	https://codeigniter.com/user_guide/general/routing.html
+|	http://codeigniter.com/user_guide/general/routing.html
 |
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
@@ -50,8 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
 
 $route['admin/dashboard'] = 'admin/admin';
 
@@ -59,16 +57,31 @@ $route['admin/dashboard'] = 'admin/admin';
 $route['admin/brands'] = 'admin/brands';
 $route['admin/brands/create'] = 'admin/brands/create';
 $route['admin/brands/edit/(:any)'] = 'admin/brands/edit/$1';
+$route['admin/brands/delete/(:any)'] = 'admin/brands/delete/$1';
 
 //categories routes
 $route['admin/categories'] = 'admin/categories';
 $route['admin/categories/create'] = 'admin/categories/create';
 $route['admin/categories/edit/(:any)'] = 'admin/categories/edit/$1';
+$route['admin/categories/delete/(:any)'] = 'admin/categories/delete/$1';
 
 //products routes
 $route['admin/products'] = 'admin/products';
 $route['admin/products/create'] = 'admin/products/create';
 $route['admin/products/edit/(:any)'] = 'admin/products/edit/$1';
+$route['admin/products/delete/(:any)'] = 'admin/products/delete/$1';
 
-$route['brands'] = 'admin/brands/brands_list';
+// user groups routes
+$route['admin/user-groups'] = 'admin/userGroups';
+$route['admin/user-groups/create'] = 'admin/userGroups/create';
+$route['admin/user-groups/edit/(:any)'] = 'admin/userGroups/edit/$1';
+$route['admin/user-groups/delete/(:any)'] = 'admin/userGroups/delete/$1';
 
+// users routes
+$route['admin/users'] = 'admin/users';
+$route['admin/users/create'] = 'admin/users/create';
+$route['admin/users/edit/(:any)'] = 'admin/users/edit/$1';
+$route['admin/users/delete/(:any)'] = 'admin/users/delete/$1';
+
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;

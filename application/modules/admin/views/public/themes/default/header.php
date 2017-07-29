@@ -255,7 +255,7 @@
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="<?=  base_url('auth/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -290,6 +290,10 @@
                             <li>
                                 <a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a>
                             </li>
+                            <?php if ($this->is_admin): ?>
+                            <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
+                            <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>
+                            <?php endif; ?>                            
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
