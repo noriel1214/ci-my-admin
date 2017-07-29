@@ -1,6 +1,6 @@
 <?php
 
-class Brands extends MY_Controller {
+class Brands extends Admin_Controller {
 
     function __construct() {
         parent::__construct();

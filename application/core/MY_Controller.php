@@ -15,6 +15,6 @@ class MY_Controller extends CI_Controller {
         $this->_container = $this->config->item('ci_my_admin_template_dir_public') . "layout.php";
         $this->_modules = $this->config->item('modules_locations');
 
-        log_message('debug', 'CI My Admin : MY_Controller class loaded');
+        log_message('debug', 'My Payroll Company : MY_Controller class loaded');
     }
 }

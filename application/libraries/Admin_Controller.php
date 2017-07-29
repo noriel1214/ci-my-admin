@@ -20,6 +20,6 @@ class Admin_Controller extends MY_Controller {
         $user = $this->ion_auth->user()->row();
         $this->logged_in_name = $user->first_name;
 
-        log_message('debug', 'CI My Admin : Admin_Controller class loaded');
+        log_message('debug', 'My Payroll Company : Admin_Controller class loaded');
     }
 }

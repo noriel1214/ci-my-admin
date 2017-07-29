@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>CI My Admin</title>
+        <title>My Payroll Company</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
@@ -50,12 +50,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?= base_url('admin/dashboard') ?>">CI My Admin v1.0</a>
+                    <a class="navbar-brand" href="<?= base_url('admin/dashboard') ?>">My Company Payroll</a>
                 </div>
                 <!-- /.navbar-header -->
 
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
+                    <li style="display:none" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
@@ -106,7 +106,7 @@
                         <!-- /.dropdown-messages -->
                     </li>
                     <!-- /.dropdown -->
-                    <li class="dropdown">
+                    <li style="display:none" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
@@ -185,7 +185,7 @@
                         <!-- /.dropdown-tasks -->
                     </li>
                     <!-- /.dropdown -->
-                    <li class="dropdown">
+                    <li style="display:none" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
@@ -282,10 +282,10 @@
                                 <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Brands</a>
+                                <a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Departments</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Categories</a>
+                                <a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Employees</a>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a>

@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">26</div>
-                            <div>New Comments!</div>
+                            <div>Total Employees</div>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">124</div>
-                            <div>New Orders!</div>
+                            <div>Present Today</div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">13</div>
-                            <div>Support Tickets!</div>
+                            <div>On Leave</div>
                         </div>
                     </div>
                 </div>
