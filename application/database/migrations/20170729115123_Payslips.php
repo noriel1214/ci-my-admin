@@ -3,6 +3,9 @@
 class Migration_Payslips extends CI_Migration {
 
     public function up() {
+        // Drop table 'payslips' if it exists
+        $this->dbforge->drop_table('payslips', TRUE);  
+        
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',
@@ -80,6 +83,10 @@ class Migration_Payslips extends CI_Migration {
             ),
             'allowance_amt_4' => array(
                 'type' => 'DECIMAL'
+            ),
+            'payslip_status' => array(
+                'type' => 'INT',
+                'constraint' => 11
             ),
             'date_updated' =>array(
                 'type'=>'DATETIME'

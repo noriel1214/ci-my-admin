@@ -1,22 +1,38 @@
 <?php
 
-class Migration_Positions extends CI_Migration {
+class Migration_Systems extends CI_Migration {
 
     public function up() {
-        // Drop table 'positions' if it exists
-        $this->dbforge->drop_table('positions', TRUE);  
-        
+        // Drop table 'systems' if it exists
+        $this->dbforge->drop_table('systems', TRUE);  
+
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',
                 'constraint' => 11,
                 'auto_increment' => TRUE
             ),
-            'pos_name' => array(
+            'sys_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'pos_desc' => array(
+            'sys_title' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'sys_addr' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'sys_phone' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'sys_email' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'sys_lang' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
@@ -36,11 +52,11 @@ class Migration_Positions extends CI_Migration {
             )
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('positions');
+        $this->dbforge->create_table('systems');
     }
 
     public function down() {
-        $this->dbforge->drop_table('positions');
+        $this->dbforge->drop_table('systems');
     }
 
 }

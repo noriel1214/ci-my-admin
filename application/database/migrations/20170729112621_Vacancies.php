@@ -3,6 +3,10 @@
 class Migration_Vacancies extends CI_Migration {
 
     public function up() {
+        // Drop table 'vacancies' if it exists
+        $this->dbforge->drop_table('vacancies', TRUE);  
+        
+        
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',

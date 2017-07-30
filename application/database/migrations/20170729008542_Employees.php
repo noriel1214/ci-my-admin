@@ -3,6 +3,9 @@
 class Migration_Employees extends CI_Migration {
 
     public function up() {
+        // Drop table 'employees' if it exists
+        $this->dbforge->drop_table('employees', TRUE);  
+        
          $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',

@@ -1,19 +1,22 @@
 <?php
 
-class Migration_Departments extends CI_Migration {
+class Migration_Allowances extends CI_Migration {
 
     public function up() {
+        // Drop table 'allowances' if it exists
+        $this->dbforge->drop_table('allowances', TRUE);  
+        
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',
                 'constraint' => 11,
                 'auto_increment' => TRUE
             ),
-            'dept_name' => array(
+            'allowance_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'dept_desc' => array(
+            'allowance_desc' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
@@ -33,11 +36,11 @@ class Migration_Departments extends CI_Migration {
             )
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('departments');
+        $this->dbforge->create_table('allowances');
     }
 
     public function down() {
-        $this->dbforge->drop_table('departments');
+        $this->dbforge->drop_table('allowances');
     }
 
 }

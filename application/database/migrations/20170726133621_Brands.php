@@ -3,6 +3,9 @@
 class Migration_Brands extends CI_Migration {
 
     public function up() {
+        // Drop table 'brands' if it exists
+        $this->dbforge->drop_table('brands', TRUE);
+        
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',

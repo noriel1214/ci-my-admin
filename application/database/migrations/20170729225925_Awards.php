@@ -1,10 +1,10 @@
 <?php
 
-class Migration_Positions extends CI_Migration {
+class Migration_Awards extends CI_Migration {
 
     public function up() {
-        // Drop table 'positions' if it exists
-        $this->dbforge->drop_table('positions', TRUE);  
+        // Drop table 'awards' if it exists
+        $this->dbforge->drop_table('awards', TRUE);  
         
         $this->dbforge->add_field(array(
             'id' => array(
@@ -12,13 +12,24 @@ class Migration_Positions extends CI_Migration {
                 'constraint' => 11,
                 'auto_increment' => TRUE
             ),
-            'pos_name' => array(
+            'award_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'pos_desc' => array(
+            'gift' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
+            ),
+            'gift_amt' => array(
+                'type' => 'DECIMAL',
+                'constraint' => '10,2'
+            ),
+            'emp_id' => array(
+                'type' => 'INT',
+                'constraint' => 11
+            ),
+            'award_dT' => array(
+                'type' => 'DATETIME'
             ),
             'date_updated' =>array(
                 'type'=>'DATETIME'
@@ -36,11 +47,11 @@ class Migration_Positions extends CI_Migration {
             )
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('positions');
+        $this->dbforge->create_table('awards');
     }
 
     public function down() {
-        $this->dbforge->drop_table('positions');
+        $this->dbforge->drop_table('awards');
     }
 
 }

@@ -3,6 +3,9 @@
 class Migration_Leaves extends CI_Migration {
 
     public function up() {
+        // Drop table 'leaves' if it exists
+        $this->dbforge->drop_table('leaves', TRUE);  
+        
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',

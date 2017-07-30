@@ -3,6 +3,9 @@
 class Migration_Attendances extends CI_Migration {
 
     public function up() {
+        // Drop table 'attendances' if it exists
+        $this->dbforge->drop_table('attendances', TRUE);  
+        
         $this->dbforge->add_field(array(
             'id' => array(
                 'type' => 'INT',
