@@ -66,10 +66,10 @@ $route['admin/categories/edit/(:any)'] = 'admin/categories/edit/$1';
 $route['admin/categories/delete/(:any)'] = 'admin/categories/delete/$1';
 
 //products routes
-$route['admin/products'] = 'admin/products';
-$route['admin/products/create'] = 'admin/products/create';
-$route['admin/products/edit/(:any)'] = 'admin/products/edit/$1';
-$route['admin/products/delete/(:any)'] = 'admin/products/delete/$1';
+$route['admin/departments'] = 'admin/departments';
+$route['admin/departments/create'] = 'admin/departments/create';
+$route['admin/departments/edit/(:any)'] = 'admin/departments/edit/$1';
+$route['admin/departments/delete/(:any)'] = 'admin/departments/delete/$1';
 
 // user groups routes
 $route['admin/user-groups'] = 'admin/userGroups';

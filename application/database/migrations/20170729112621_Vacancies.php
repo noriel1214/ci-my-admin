@@ -27,6 +27,20 @@ class Migration_Vacancies extends CI_Migration {
             ),
             'last_appl_dt' => array(
                 'type' => 'DATETIME'
+            ),
+            'date_updated' =>array(
+                'type'=>'DATETIME'
+            ),
+            'date_created' => array(
+                'type'=>'DATETIME'
+            ),
+            'updated_from_id' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'created_from_id' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
             )
         ));
         $this->dbforge->add_key('id', TRUE);

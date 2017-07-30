@@ -282,13 +282,10 @@
                                 <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/brands') ?>"><i class="fa fa-table fa-fw"></i> Departments</a>
+                                <a href="<?= base_url('admin/employees') ?>"><i class="fa fa-edit fa-fw"></i> Employees</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/categories') ?>"><i class="fa fa-edit fa-fw"></i> Employees</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('admin/products') ?>"><i class="fa fa-edit fa-fw"></i> Products</a>
+                                <a href="<?= base_url('admin/departments') ?>"><i class="fa fa-edit fa-fw"></i> Departments</a>
                             </li>
                             <?php if ($this->is_admin): ?>
                             <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>

@@ -24,10 +24,6 @@ class Migration_Employees extends CI_Migration {
             'suffix' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
-            ),             
-             'created_from_ip' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 100
             ),
             'contact_name' => array(
                 'type' => 'VARCHAR',
@@ -115,6 +111,34 @@ class Migration_Employees extends CI_Migration {
                 'constraint' => 100
             ),
                 'branch_name' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+                'date_updated' => array(
+                'type' => 'DATETIME'
+            ),
+                'date_created' => array(
+                'type' => 'DATETIME'
+            ),
+                'updated_from_ip' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+                'created_from_ip' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'date_updated' =>array(
+                'type'=>'DATETIME'
+            ),
+            'date_created' => array(
+                'type'=>'DATETIME'
+            ),
+            'updated_from_id' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'created_from_id' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             )

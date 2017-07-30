@@ -18,6 +18,20 @@ class Migration_Leaves extends CI_Migration {
             'leave_desc' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 200
+            ),
+            'date_updated' =>array(
+                'type'=>'DATETIME'
+            ),
+            'date_created' => array(
+                'type'=>'DATETIME'
+            ),
+            'updated_from_id' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
+            ),
+            'created_from_id' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 100
             )
         ));
         $this->dbforge->add_key('id', TRUE);
