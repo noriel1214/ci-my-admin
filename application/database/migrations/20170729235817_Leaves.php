@@ -1,10 +1,10 @@
 <?php
 
-class Migration_Attendances extends CI_Migration {
+class Migration_Leaves extends CI_Migration {
 
     public function up() {
-        // Drop table 'attendances' if it exists
-        $this->dbforge->drop_table('attendances', TRUE);  
+        // Drop table 'leaves' if it exists
+        $this->dbforge->drop_table('leaves', TRUE);  
         
         $this->dbforge->add_field(array(
             'id' => array(
@@ -12,18 +12,13 @@ class Migration_Attendances extends CI_Migration {
                 'constraint' => 11,
                 'auto_increment' => TRUE
             ),
-            'attd_dt' => array(
-                'type'=>'DATETIME'
+            'leave_start_dt' => array(
+                'type' => 'DATETIME'
             ),
-            'emp_id' => array(
-                'type' => 'INT',
-                'constraint' => 11
+            'leave_end_dt' => array(
+                'type' => 'DATETIME'
             ),
-            'attd_status_id' => array(
-                'type' => 'INT',
-                'constraint' => 11
-            ),
-            'absence_reason' => array(
+            'leave_desc' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 200
             ),
@@ -33,21 +28,21 @@ class Migration_Attendances extends CI_Migration {
             'date_created' => array(
                 'type'=>'DATETIME'
             ),
-            'updated_from_id' => array(
+            'updated_from_ip' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'created_from_id' => array(
+            'created_from_ip' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
-            ) 
+            )
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('attendances');
+        $this->dbforge->create_table('leaves');
     }
 
     public function down() {
-        $this->dbforge->drop_table('attendances');
+        $this->dbforge->drop_table('leaves');
     }
 
 }

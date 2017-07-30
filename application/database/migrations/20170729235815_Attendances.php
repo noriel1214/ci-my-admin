@@ -1,11 +1,10 @@
 <?php
 
-class Migration_Vacancies extends CI_Migration {
+class Migration_Attendances extends CI_Migration {
 
     public function up() {
-        // Drop table 'vacancies' if it exists
-        $this->dbforge->drop_table('vacancies', TRUE);  
-        
+        // Drop table 'attendances' if it exists
+        $this->dbforge->drop_table('attendances', TRUE);  
         
         $this->dbforge->add_field(array(
             'id' => array(
@@ -13,24 +12,20 @@ class Migration_Vacancies extends CI_Migration {
                 'constraint' => 11,
                 'auto_increment' => TRUE
             ),
-            'vacancy_name' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 100
+            'attd_dt' => array(
+                'type'=>'DATETIME'
             ),
-            'vacancy_desc' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 100
-            ),
-            'dept_id' => array(
+            'emp_id' => array(
                 'type' => 'INT',
                 'constraint' => 11
             ),
-            'pos_id' => array(
+            'attd_status_id' => array(
                 'type' => 'INT',
                 'constraint' => 11
             ),
-            'last_appl_dt' => array(
-                'type' => 'DATETIME'
+            'absence_reason' => array(
+                'type' => 'VARCHAR',
+                'constraint' => 200
             ),
             'date_updated' =>array(
                 'type'=>'DATETIME'
@@ -38,21 +33,21 @@ class Migration_Vacancies extends CI_Migration {
             'date_created' => array(
                 'type'=>'DATETIME'
             ),
-            'updated_from_id' => array(
+            'updated_from_ip' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'created_from_id' => array(
+            'created_from_ip' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
-            )
+            ) 
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('vacancies');
+        $this->dbforge->create_table('attendances');
     }
 
     public function down() {
-        $this->dbforge->drop_table('vacancies');
+        $this->dbforge->drop_table('attendances');
     }
 
 }

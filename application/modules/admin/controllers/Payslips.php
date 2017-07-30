@@ -17,7 +17,7 @@ public function index() {
 
     public function create() {
         if ($this->input->post('emp_id')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->payslip->insert($data);
             redirect('/admin/payslips', 'refresh');
         }
@@ -28,7 +28,7 @@ public function index() {
 
     public function edit($id) {
         if ($this->input->post('emp_id')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->payslip->update($data, $id);
             redirect('/admin/payslips', 'refresh');
         }
@@ -69,6 +69,7 @@ public function index() {
             $data['allowance_type_3'] = $this->input->post('allowance_type_3');     
             $data['allowance_amt_3'] = $this->input->post('allowance_amt_3');     
             $data['allowance_type_4'] = $this->input->post('allowance_type_4');     
-            $data['allowance_amt_4'] = $this->input->post('allowance_amt_4');     
+            $data['allowance_amt_4'] = $this->input->post('allowance_amt_4'); 
+            return $data;
     }
 }

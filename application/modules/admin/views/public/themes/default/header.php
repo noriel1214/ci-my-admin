@@ -287,6 +287,12 @@
                             <li>
                                 <a href="<?= base_url('admin/departments') ?>"><i class="fa fa-edit fa-fw"></i> Departments</a>
                             </li>
+                            <li>
+                                <a href="<?= base_url('admin/vacancies') ?>"><i class="fa fa-edit fa-fw"></i> Vacancies</a>
+                            </li>   
+                            <li>
+                                <a href="<?= base_url('admin/applications') ?>"><i class="fa fa-edit fa-fw"></i> Applications</a>
+                            </li>                             
                             <?php if ($this->is_admin): ?>
                             <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
                             <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>

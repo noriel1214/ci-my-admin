@@ -17,7 +17,7 @@ public function index() {
 
     public function create() {
         if ($this->input->post('vacancy_name')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->vacancy->insert($data);
             redirect('/admin/vacancies', 'refresh');
         }
@@ -28,7 +28,7 @@ public function index() {
 
     public function edit($id) {
         if ($this->input->post('vacancy_name')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->vacancy->update($data, $id);
             redirect('/admin/vacancies', 'refresh');
         }
@@ -54,6 +54,7 @@ public function index() {
             $data['vacancy_desc'] = $this->input->post('vacancy_desc');     
             $data['dept_id'] = $this->input->post('dept_id');     
             $data['pos_id'] = $this->input->post('pos_id');     
-            $data['last_appl_dt'] = $this->input->post('last_appl_dt');     
+            $data['last_appl_dt'] = $this->input->post('last_appl_dt');
+            return $data;
     }
 }

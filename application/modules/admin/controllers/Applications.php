@@ -17,7 +17,7 @@ public function index() {
 
     public function create() {
         if ($this->input->post('appl_name')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->application->insert($data);
             redirect('/admin/applications', 'refresh');
         }
@@ -28,7 +28,7 @@ public function index() {
 
     public function edit($id) {
         if ($this->input->post('appl_name')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->application->update($data, $id);
             redirect('/admin/applications', 'refresh');
         }
@@ -52,9 +52,9 @@ public function index() {
     private function storeinputs(){
             $data['appl_name'] = $this->input->post('appl_name');
             $data['appl_desc'] = $this->input->post('appl_desc');     
-            $data['dept_id'] = $this->input->post('dept_id');
             $data['pos_id'] = $this->input->post('pos_id');
             $data['appl_dt'] = $this->input->post('appl_dt');
             $data['pos_status_id'] = $this->input->post('pos_status_id');
+            return $data;
     }
 }

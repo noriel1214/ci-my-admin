@@ -17,7 +17,7 @@ public function index() {
 
     public function create() {
         if ($this->input->post('pos_name')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->position->insert($data);
             redirect('/admin/positions', 'refresh');
         }
@@ -28,7 +28,7 @@ public function index() {
 
     public function edit($id) {
         if ($this->input->post('pos_name')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->position->update($data, $id);
             redirect('/admin/positions', 'refresh');
         }
@@ -51,6 +51,7 @@ public function index() {
     }    
     private function storeinputs(){
             $data['pos_name'] = $this->input->post('pos_name');
-            $data['pos_desc'] = $this->input->post('pos_desc');     
+            $data['pos_desc'] = $this->input->post('pos_desc');    
+            return $data;
     }
 }

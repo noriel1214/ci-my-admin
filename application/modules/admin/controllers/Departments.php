@@ -51,6 +51,7 @@ public function index() {
     }    
     private function storeinputs(){
             $data['dept_name'] = $this->input->post('dept_name');
-            $data['dept_desc'] = $this->input->post('dept_desc');     
+            $data['dept_desc'] = $this->input->post('dept_desc'); 
+            return $data;
     }
 }

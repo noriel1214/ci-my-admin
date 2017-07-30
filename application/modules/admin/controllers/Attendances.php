@@ -17,7 +17,7 @@ public function index() {
 
     public function create() {
         if ($this->input->post('attd_dt')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->attendance->insert($data);
             redirect('/admin/attendances', 'refresh');
         }
@@ -28,7 +28,7 @@ public function index() {
 
     public function edit($id) {
         if ($this->input->post('attd_dt')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->attendance->update($data, $id);
             redirect('/admin/attendances', 'refresh');
         }
@@ -53,6 +53,7 @@ public function index() {
             $data['attd_dt'] = $this->input->post('attd_dt');
             $data['emp_id'] = $this->input->post('emp_id');     
             $data['attd_status_id'] = $this->input->post('attd_status_id');     
-            $data['absence_reason'] = $this->input->post('absence_reason');     
+            $data['absence_reason'] = $this->input->post('absence_reason');  
+            return $data;
     }
 }

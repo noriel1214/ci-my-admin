@@ -17,7 +17,7 @@ public function index() {
 
     public function create() {
         if ($this->input->post('leave_start_dt')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->leave->insert($data);
             redirect('/admin/leaves', 'refresh');
         }
@@ -28,7 +28,7 @@ public function index() {
 
     public function edit($id) {
         if ($this->input->post('leave_start_dt')) {
-            $this->storeinputs();
+            $data=$this->storeinputs();
             $this->leave->update($data, $id);
             redirect('/admin/leaves', 'refresh');
         }
@@ -52,6 +52,7 @@ public function index() {
     private function storeinputs(){
             $data['leave_start_dt'] = $this->input->post('leave_start_dt');
             $data['leave_end_dt'] = $this->input->post('leave_end_dt');     
-            $data['leave_desc'] = $this->input->post('leave_desc');     
+            $data['leave_desc'] = $this->input->post('leave_desc');  
+            return $data;
     }
 }

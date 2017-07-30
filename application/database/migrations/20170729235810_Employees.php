@@ -137,11 +137,11 @@ class Migration_Employees extends CI_Migration {
             'date_created' => array(
                 'type'=>'DATETIME'
             ),
-            'updated_from_id' => array(
+            'updated_from_ip' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ),
-            'created_from_id' => array(
+            'created_from_ip' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 100
             )
