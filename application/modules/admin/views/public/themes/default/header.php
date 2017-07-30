@@ -289,7 +289,10 @@
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/vacancies') ?>"><i class="fa fa-edit fa-fw"></i> Vacancies</a>
-                            </li>   
+                            </li> 
+                            <li>
+                                <a href="<?= base_url('admin/leaves') ?>"><i class="fa fa-edit fa-fw"></i> Leaves</a>
+                            </li>                               
                             <li>
                                 <a href="<?= base_url('admin/applications') ?>"><i class="fa fa-edit fa-fw"></i> Applications</a>
                             </li>                             

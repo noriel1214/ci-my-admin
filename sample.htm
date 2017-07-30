@@ -14,63 +14,73 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-      <div class="page-header users-header">
-        <h2>
-          Employees
-          <a  href="<?=base_url('admin/employees/create')?>" class="btn btn-success">Add a new</a>
-        </h2>
-      </div>
+            <h2>
+                Create Payslip
+                <a  href="<?= base_url('admin/payslips') ?>" class="btn btn-warning">Go back to payslips listing</a>
+            </h2>
         </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+     <form role="form" method="POST" action="<?= base_url('admin/payslips/create') ?>">
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Employees listing
+                    Create New Payslip
                 </div>
-                <!-- /.panel-heading -->
                 <div class="panel-body">
-                    <div class="dataTable_wrapper">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            <thead>
-                                <tr>
-                                    <th>Employee ID</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($employees as $employee): ?>
-                                <tr class="odd gradeX">
-                                    <td><?php echo $employee['id'] ?></td>
-                                    <td><?php echo $employee['fname'].' '.$employee['mname'].'. '.$employee['lname'].' '.$employee['suffix'] ?></td>
-                                    <td><?php echo $employee['addrline1'].' '.$employee['addrline2'].' '.$employee['barrio'].' '.$employee['citytown'].', '.$employee['province'].' '.$employee['zip'] ?></td>
-                                    <td><?php echo $employee['phone'] ?></td>
-                                    <td><?php echo $employee['email'] ?></td>
-                                    <td>
-                                        <a href="<?=base_url('admin/employees/edit/'.$employee['id'])?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/employees/delete/'.$employee['id'])?>" class="btn btn-danger">delete</a>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                            <tfooter>
-                                <tr>
-                                    <th>Employee ID</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfooter>
-                        </table>
+                    <div class="row">
+                        <div class="col-lg-6">
+                           
+                                <div class="form-group col-lg-6">
+                                    <label>Department</label>
+                                    <select class="form-control">
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Department</label>
+                                    <select class="form-control">
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                    </select>
+                                </div>                            
+
+                        </div>
+                        
+                        <div class="col-lg-6">
+                           
+                                <div class="form-group col-lg-4">
+                                    <label>Department</label>
+                                    <select class="form-control">
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Department</label>
+                                    <select class="form-control">
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                        <option>Dept1</option>
+                                    </select>
+                                </div> 
+                             <div class="form-group col-lg-4">
+                                  <label>&nbsp;</label>
+                                 <button type="submit" class="btn btn-primary form-control">Submit</button>
+                             </div>
+
+                        </div>                        
+                                <button type="submit" class="btn btn-primary">Submit Button</button>
+                                <button type="reset" class="btn btn-default">Reset Button</button>
+
                     </div>
+                    <!-- /.row (nested) -->
                 </div>
                 <!-- /.panel-body -->
             </div>
@@ -78,7 +88,12 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+ </form>
+
+    <!-- /.row -->
 </div>
+<!-- /#page-wrapper -->
+
 </div>
 <!-- /#page-wrapper -->
 </div>

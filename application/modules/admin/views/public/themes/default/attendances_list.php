@@ -3,8 +3,8 @@
         <div class="col-lg-12">
       <div class="page-header users-header">
         <h2>
-          Applications
-          <a  href="<?=base_url('admin/applications/create')?>" class="btn btn-success">Add a new</a>
+          Brands
+          <a  href="<?=base_url('admin/brands/create')?>" class="btn btn-success">Add a new</a>
         </h2>
       </div>
         </div>
@@ -15,7 +15,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Applications listing
+                    Brands listing
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -23,36 +23,33 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Application ID</th>
-                                    <th>Applicant's Name</th>
-                                    <th>Position Applied For</th>
-                                    <th>Application Date</th>
-                                    <th>Status</th>
+                                    <th>Brand ID</th>
+                                    <th>Description</th>
+                                    <th>Created From IP</th>
+                                    <th>Updated From IP</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($applications as $application): ?>
+                                <?php foreach($brands as $brand): ?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $application['id'] ?></td>
-                                    <td><?php echo $application['appl_name'] ?></td>
-                                    <td><?php echo $application['pos_id'] ?></td>
-                                    <td><?php echo $application['appl_dt'] ?></td>
-                                    <td><?php echo $application['pos_status_id'] ?></td>                                   
+                                    <td><?php echo $brand['id'] ?></td>
+                                    <td><?php echo $brand['description'] ?></td>
+                                    <td><?php echo $brand['created_from_ip'] ?></td>
+                                    <td><?php echo $brand['updated_from_ip'] ?></td>
                                     <td>
-                                        <a href="<?=base_url('admin/applications/edit/'.$application['id'])?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/applications/delete/'.$application['id'])?>" class="btn btn-danger">delete</a>
+                                        <a href="<?=base_url('admin/brands/edit/'.$brand['id'])?>" class="btn btn-info">edit</a>  
+                                        <a href="<?=base_url('admin/brands/delete/'.$brand['id'])?>" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
                             <tfooter>
                                 <tr>
-                                    <th>Application ID</th>
-                                    <th>Applicant's Name</th>
-                                    <th>Position Applied For</th>
-                                    <th>Application Date</th>
-                                    <th>Status</th>
+                                    <th>Brand ID</th>
+                                    <th>Description</th>
+                                    <th>Created From IP</th>
+                                    <th>Updated From IP</th>
                                     <th>Action</th>
                                 </tr>
                             </tfooter>
