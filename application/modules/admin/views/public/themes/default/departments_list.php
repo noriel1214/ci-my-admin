@@ -33,8 +33,8 @@
                                 <?php foreach($departments as $department): ?>
                                 <tr class="odd gradeX">
                                     <td><?php echo $department['id'] ?></td>
-                                    <td><?php echo $department['dept_desc'] ?></td>
                                     <td><?php echo $department['dept_name'] ?></td>
+                                    <td><?php echo $department['dept_desc'] ?></td>
                                     <td>
                                         <a href="<?=base_url('admin/departments/edit/'.$department['id'])?>" class="btn btn-info">edit</a>  
                                         <a href="<?=base_url('admin/departments/delete/'.$department['id'])?>" class="btn btn-danger">delete</a>
