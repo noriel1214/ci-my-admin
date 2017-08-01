@@ -298,6 +298,24 @@
                             </li>                             
                             <li>
                                 <a href="<?= base_url('admin/payslips/create') ?>"><i class="fa fa-edit fa-fw"></i> Create Payslip</a>
+                            </li> 
+                            <li>
+                                <a href="<?= base_url('admin/awards') ?>"><i class="fa fa-edit fa-fw"></i> Awards</a>
+                            </li>                             
+                            <li>
+                                <a href="<?= base_url('admin/allowances') ?>"><i class="fa fa-edit fa-fw"></i> Allowances</a>
+                            </li>                             
+                            <li>
+                                <a href="<?= base_url('admin/deductions') ?>"><i class="fa fa-edit fa-fw"></i> Deductions</a>
+                            </li>                             
+                            <li>
+                                <a href="<?= base_url('admin/expenses') ?>"><i class="fa fa-edit fa-fw"></i> Expenses</a>
+                            </li>                             
+                            <li>
+                                <a href="<?= base_url('admin/profiles') ?>"><i class="fa fa-edit fa-fw"></i> Profiles</a>
+                            </li>                             
+                            <li>
+                                <a href="<?= base_url('admin/systems') ?>"><i class="fa fa-edit fa-fw"></i> Systems</a>
                             </li>                             
                             <?php if ($this->is_admin): ?>
                             <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>

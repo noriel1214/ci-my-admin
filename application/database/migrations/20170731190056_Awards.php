@@ -28,7 +28,7 @@ class Migration_Awards extends CI_Migration {
                 'type' => 'INT',
                 'constraint' => 11
             ),
-            'award_dT' => array(
+            'award_dt' => array(
                 'type' => 'DATETIME'
             ),
             'date_updated' =>array(

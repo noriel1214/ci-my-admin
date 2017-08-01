@@ -8,9 +8,7 @@ class Departments extends Admin_Controller {
     }
 
 public function index() {
-        $departments = $this->department->get_all();
-
-        $data['departments'] = $departments;
+        $data['departments'] = $this->department->get_all();
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "departments_list";
         $this->load->view($this->_container, $data);
     }

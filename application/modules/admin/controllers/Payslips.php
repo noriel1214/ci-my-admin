@@ -5,11 +5,16 @@ class Payslips extends Admin_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model(array('admin/payslip'));
+        $this->load->model(array('admin/allowance'));
+        $this->load->model(array('admin/deduction'));
     }
 
 public function index() {
         $payslips = $this->payslip->get_all();
 
+        $data['allowances']=$this->allowance->get_all();
+        $data['deductions']=$this->deduction->get_all();
+        
         $data['payslips'] = $payslips;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_list";
         $this->load->view($this->_container, $data);
@@ -21,7 +26,8 @@ public function index() {
             $this->payslip->insert($data);
             redirect('/admin/payslips', 'refresh');
         }
-
+        $data['allowances']=$this->allowance->get_all();
+        $data['deductions']=$this->deduction->get_all();
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_create";
         $this->load->view($this->_container, $data);
     }
@@ -34,7 +40,8 @@ public function index() {
         }
 
         $payslip = $this->payslip->get($id);
-
+        $data['allowances']=$this->allowance->getall();
+        $data['deductions']=$this->deduction->getall();
         $data['payslip'] = $payslip;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_edit";
         $this->load->view($this->_container, $data);

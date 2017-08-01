@@ -127,7 +127,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Department</label>
-                                    <input id="dept_id" name="dept_id" class="form-control">
+                                    <select id="dept_id" name="dept_id" class="form-control">
+                                        <?php foreach($departments as $department): ?>
+                                        <option value="<?php echo $department["id"] ?>"><?php echo $department["dept_name"] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>                            
                                 <div class="form-group">
                                     <label>Position</label>

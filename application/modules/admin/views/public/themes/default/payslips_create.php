@@ -66,42 +66,44 @@
                     
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input name="allowance_type[]" class="form-control" type="text" placeholder="Type">
+                                <select id="allowance_type_1" class="form-control">
+                                    <option>Select Allowance</option>
+                                    <?php foreach($allowances as $allowance): ?>
+                                    <option value="<?php echo $allowance['id'] ?>"><?php echo $allowance['allowance_name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amount[]" class="form-control" id="allowance_amount_1" type="number" placeholder="Amount">
+                                <input name="allowance_amt_1" class="form-control" id="allowance_amount_1" type="number" placeholder="Amount">
                             </div>
-                        </div>
- 
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input name="allowance_type[]" class="form-control" type="text" placeholder="Type">
-                            </div>
-
-                            <div class="col-sm-6">
-                                <input name="allowance_amount[]" class="form-control" id="allowance_amount" type="number" placeholder="Amount">
-                            </div>
-
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input name="allowance_type[]" class="form-control" type="text" placeholder="Type">
+                                <select id="allowance_type_2" class="form-control">
+                                    <option>Select Allowance</option>
+                                    <?php foreach($allowances as $allowance): ?>
+                                    <option value="<?php echo $allowance['id'] ?>"><?php echo $allowance['allowance_name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amount[]" class="form-control" id="allowance_amount_1" type="number" placeholder="Amount">
+                                <input name="allowance_amt_2" class="form-control" id="allowance_amount_1" type="number" placeholder="Amount">
                             </div>
                         </div>
- 
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input name="allowance_type[]" class="form-control" type="text" placeholder="Type">
+                                <select id="allowance_type_3" class="form-control">
+                                    <option>Select Allowance</option>
+                                    <?php foreach($allowances as $allowance): ?>
+                                    <option value="<?php echo $allowance['id'] ?>"><?php echo $allowance['allowance_name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
-
                             <div class="col-sm-6">
-                                <input name="allowance_amount[]" class="form-control" id="allowance_amount" type="number" placeholder="Amount">
+                                <input name="allowance_amt_3" class="form-control" id="allowance_amount_1" type="number" placeholder="Amount">
                             </div>
-
                         </div>                    
+                  
                     
 
                     <div class="form-group">
@@ -122,42 +124,45 @@
                         Deductions                    </div>
                 </div>
                 <div class="panel-body ">
-                        <div class="form-group">
+                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input name="deduction_type[]" class="form-control" type="text" placeholder="Type">
+                                <select id="deduction_type_1" name="deduction_type_1" class="form-control">
+                                    <option>Select Deduction</option>
+                                    <?php foreach($deductions as $deduction): ?>
+                                    <option value="<?php echo $deduction['id'] ?>"><?php echo $deduction['deduction_name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amount[]" class="form-control" id="deduction_amount_1" type="number" placeholder="Amount">
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input name="deduction_type[]" class="form-control" type="text" placeholder="Type">
-                            </div>
-
-                            <div class="col-sm-6">
-                                <input name="deduction_amount[]" class="form-control" id="deduction_amount" type="number" placeholder="Amount">
+                                <input name="deduction_amt_1" class="form-control" id="deduction_amt_1" type="number" placeholder="Amount">
                             </div>
                         </div>
-                        <div class="form-group">
+                          <div class="form-group">
                             <div class="col-sm-6">
-                                <input name="deduction_type[]" class="form-control" type="text" placeholder="Type">
+                                <select id="deduction_type_2" name="deduction_type_2" class="form-control">
+                                    <option>Select Deduction</option>
+                                    <?php foreach($deductions as $deduction): ?>
+                                    <option value="<?php echo $deduction['id'] ?>"><?php echo $deduction['deduction_name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amount[]" class="form-control" id="deduction_amount_1" type="number" placeholder="Amount">
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input name="deduction_type[]" class="form-control" type="text" placeholder="Type">
-                            </div>
-
-                            <div class="col-sm-6">
-                                <input name="deduction_amount[]" class="form-control" id="deduction_amount" type="number" placeholder="Amount">
+                                <input name="deduction_amt_2" class="form-control" id="deduction_amt_2" type="number" placeholder="Amount">
                             </div>
                         </div>
+                         <div class="form-group">
+                            <div class="col-sm-6">
+                                <select id="deduction_type_3" name="deduction_type_3" class="form-control">
+                                    <option>Select Deduction</option>
+                                    <?php foreach($deductions as $deduction): ?>
+                                    <option value="<?php echo $deduction['id'] ?>"><?php echo $deduction['deduction_name'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <input name="deduction_amt_3" class="form-control" id="deduction_amt_3" type="number" placeholder="Amount">
+                            </div>
+                        </div>                    
                     
 
                     <div class="form-group">

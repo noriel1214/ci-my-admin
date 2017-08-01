@@ -5,6 +5,7 @@ class Employees extends Admin_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model(array('admin/employee'));
+        $this->load->model(array('admin/department'));
     }
 
 public function index() {
@@ -21,7 +22,7 @@ public function index() {
             $this->employee->insert($data);
             redirect('/admin/employees', 'refresh');
         }
-
+        $data['departments'] = $this->department->get_all();
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "employees_create";
         $this->load->view($this->_container, $data);
     }
@@ -75,7 +76,7 @@ public function index() {
             $data['acct_name'] = $this->input->post('acct_name');
             $data['acct_no'] = $this->input->post('acct_no');
             $data['bank_name'] = $this->input->post('bank_name');
-            $data['branch_name'] = $this->input->post('branch_name'); 
+            $data['branch_name'] = $this->input->post('branch_name');             
             return $data;
     }
 }
