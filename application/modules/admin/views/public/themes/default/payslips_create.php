@@ -22,27 +22,48 @@
                         <div class="form-group">
                             <div class="col-sm-3">
                                 <label>Department</label>
-                                <select class="form-control">
-                                    <option>1</option>
+                                <select id="dept_id" name="dept_id" class="form-control">
+                                    <option>Select A Department</option>
+                                    <?php foreach($departments as $department): ?>
+                                    <option value="<?php echo $department['id']?>"><?php echo $department['dept_name']?></option>
+                                    <?php endforeach; ?>
+                                    
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <label>Employee</label>
-                                <select class="form-control">
-                                    <option>1</option>
+                                <select id="emp_id" name="emp_id" class="form-control">
+                                    <option>Select A Department First</option>
                                 </select>
                             </div>                            
                             <div class="col-sm-6">
                             <div class="col-sm-4">
                                 <label>Month</label>
-                                <select class="form-control">
-                                    <option>1</option>
+                                <select id="pay_month" name="pay_month" class="form-control">
+                                    <option value="0">Select A Month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                    
                                 </select>
                             </div>
                             <div class="col-sm-4">
                                 <label>Year</label>
                                 <select class="form-control">
-                                    <option>1</option>
+                                    <?php
+                                    for($i = date('Y')-1; $i <= date('Y') + 10; $i++){
+                                            echo "<option value='".$i."'>".$i."</option>";
+                                        }
+                                    ?>
                                 </select>
                             </div>                                 
                             <div class="col-sm-4">
@@ -263,3 +284,5 @@
 
     <!-- /.row -->
 </div>
+
+

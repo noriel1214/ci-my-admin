@@ -282,45 +282,49 @@
                                 <a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/employees') ?>"><i class="fa fa-edit fa-fw"></i> Employees</a>
-                            </li>
+                                <a href="#" data-target="#empitems" data-toggle="collapse"><i class="fa fa-users fa-fw"></i> Employees <span class="caret"></span></span></a>
+                                <ul class="nav nav-stacked collapse left-submenu" id="empitems">
+                                    <li><a href="<?= base_url('admin/employees/create') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-user fa-fw"></i> New Employee</a></li>
+                                    <li><a href="<?= base_url('admin/employees') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-users fa-fw"></i> List Employees</a></li>
+                                    <li><a href="<?= base_url('admin/departments') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-dedent fa-fw"></i> Departments</a></li>
+                                    <li><a href="<?= base_url('admin/leaves') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-life-bouy fa-fw"></i> Leaves</a></li>
+                                    <li><a href="<?= base_url('admin/awards') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-trophy fa-fw"></i> Awards</a></li>
+                                </ul>
+                            </li>                            
                             <li>
-                                <a href="<?= base_url('admin/departments') ?>"><i class="fa fa-edit fa-fw"></i> Departments</a>
-                            </li>
+                                <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-paypal fa-fw"></i> Payroll <span class="caret"></span></span></a>
+                                <ul class="nav nav-stacked collapse left-submenu" id="item1">
+                                    <li><a href="<?= base_url('admin/payslips/create') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-money fa-fw"></i> Create Payslip</a></li>
+                                    <li><a href="<?= base_url('admin/allowances') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope fa-fw"></i> Allowances</a></li>
+                                    <li><a href="<?= base_url('admin/deductions') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-minus fa-fw"></i> Deductions</a></li>
+                                </ul>
+                            </li>       
                             <li>
-                                <a href="<?= base_url('admin/vacancies') ?>"><i class="fa fa-edit fa-fw"></i> Vacancies</a>
-                            </li> 
-                            <li>
-                                <a href="<?= base_url('admin/leaves') ?>"><i class="fa fa-edit fa-fw"></i> Leaves</a>
+                                <a href="#" data-target="#hiringitems" data-toggle="collapse"><i class="fa fa-search-plus fa-fw"></i> Hiring <span class="caret"></span></span></a>
+                                <ul class="nav nav-stacked collapse left-submenu" id="hiringitems">
+                                    <li><a href="<?= base_url('admin/vacancies') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-pencil fa-fw"></i> Vacancies</a></li>
+                                    <li><a href="<?= base_url('admin/applications') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-edit fa-fw"></i> Application</a></li>
+                                </ul>
                             </li>                               
+                          
+                         
+                                                                               
                             <li>
-                                <a href="<?= base_url('admin/applications') ?>"><i class="fa fa-edit fa-fw"></i> Applications</a>
-                            </li>                             
+                                <a href="<?= base_url('admin/expenses') ?>"><i class="fa fa-cc-stripe fa-fw"></i> Expenses</a>
+                            </li>  
+                            
                             <li>
-                                <a href="<?= base_url('admin/payslips/create') ?>"><i class="fa fa-edit fa-fw"></i> Create Payslip</a>
+                                <a href="#" data-target="#sysadmin" data-toggle="collapse"><i class="fa fa-gears fa-fw"></i> System Admin <span class="caret"></span></span></a>
+                                <ul class="nav nav-stacked collapse left-submenu" id="sysadmin">
+                                    <li><a href="<?= base_url('admin/profiles') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-photo fa-fw"></i> Profiles</a></li>
+                                    <li><a href="<?= base_url('admin/systems') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-space-shuttle fa-fw"></i> Systems</a></li>
+                                    <?php if ($this->is_admin): ?>
+                                    <li><a href="<?= base_url('admin/user-groups') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-group fa-fw"></i> User Groups</a></li>
+                                    <li><a href="<?= base_url('admin/users') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-graduation-cap fa-fw"></i> Users</a></li>
+                                    <?php endif; ?>
+                                </ul>
                             </li> 
-                            <li>
-                                <a href="<?= base_url('admin/awards') ?>"><i class="fa fa-edit fa-fw"></i> Awards</a>
-                            </li>                             
-                            <li>
-                                <a href="<?= base_url('admin/allowances') ?>"><i class="fa fa-edit fa-fw"></i> Allowances</a>
-                            </li>                             
-                            <li>
-                                <a href="<?= base_url('admin/deductions') ?>"><i class="fa fa-edit fa-fw"></i> Deductions</a>
-                            </li>                             
-                            <li>
-                                <a href="<?= base_url('admin/expenses') ?>"><i class="fa fa-edit fa-fw"></i> Expenses</a>
-                            </li>                             
-                            <li>
-                                <a href="<?= base_url('admin/profiles') ?>"><i class="fa fa-edit fa-fw"></i> Profiles</a>
-                            </li>                             
-                            <li>
-                                <a href="<?= base_url('admin/systems') ?>"><i class="fa fa-edit fa-fw"></i> Systems</a>
-                            </li>                             
-                            <?php if ($this->is_admin): ?>
-                            <li><a href="<?= base_url('admin/user-groups') ?>"><i class="fa fa-edit fa-fw"></i> User Groups</a></li>
-                            <li><a href="<?= base_url('admin/users') ?>"><i class="fa fa-edit fa-fw"></i> Users</a></li>
-                            <?php endif; ?>                            
+                          
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

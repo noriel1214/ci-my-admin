@@ -50,6 +50,18 @@ public function index() {
         $data = $this->employee->get_all();
         print_r($data);
     }    
+    
+    public function empbydept($dept_id){
+        //$data["empsbydept"] = $this->employee->where('dept_id', $dept_id)->get();
+        $this->db->select('*'); 
+        $this->db->from('employees');
+        $this->db->where('dept_id', $dept_id);
+        $q = $this->db->get();
+        $result['empsbydept'] = $q->result();
+        $result['status']="successful!";
+        print json_encode($result);
+    }
+    
     private function storeinputs(){
             $data['fname'] = $this->input->post('fname');
             $data['lname'] = $this->input->post('lname');

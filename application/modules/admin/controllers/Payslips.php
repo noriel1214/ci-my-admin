@@ -7,6 +7,7 @@ class Payslips extends Admin_Controller {
         $this->load->model(array('admin/payslip'));
         $this->load->model(array('admin/allowance'));
         $this->load->model(array('admin/deduction'));
+        $this->load->model(array('admin/department'));
     }
 
 public function index() {
@@ -14,6 +15,7 @@ public function index() {
 
         $data['allowances']=$this->allowance->get_all();
         $data['deductions']=$this->deduction->get_all();
+        $data['departments']=$this->department->get_all();
         
         $data['payslips'] = $payslips;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_list";
@@ -28,6 +30,8 @@ public function index() {
         }
         $data['allowances']=$this->allowance->get_all();
         $data['deductions']=$this->deduction->get_all();
+        $data['departments']=$this->department->get_all();
+        
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_create";
         $this->load->view($this->_container, $data);
     }
