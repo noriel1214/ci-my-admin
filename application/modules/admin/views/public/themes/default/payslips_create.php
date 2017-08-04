@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <div class="col-sm-3">
                                 <label>Department</label>
-                                <select id="dept_id" name="dept_id" class="form-control">
+                                <select required id="dept_id" name="dept_id" class="form-control">
                                     <option>Select A Department</option>
                                     <?php foreach($departments as $department): ?>
                                     <option value="<?php echo $department['id']?>"><?php echo $department['dept_name']?></option>
@@ -32,15 +32,15 @@
                             </div>
                             <div class="col-sm-3">
                                 <label>Employee</label>
-                                <select id="emp_id" name="emp_id" class="form-control">
-                                    <option>Select A Department First</option>
+                                <select required id="emp_id" name="emp_id" class="form-control">
+                                    <option value="">Select A Department First</option>
                                 </select>
                             </div>                            
                             <div class="col-sm-6">
                             <div class="col-sm-4">
                                 <label>Month</label>
-                                <select id="pay_month" name="pay_month" class="form-control">
-                                    <option value="0">Select A Month</option>
+                                <select required id="pay_month" name="pay_month" class="form-control">
+                                    <option value="">Select A Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
                                     <option value="3">March</option>
@@ -52,13 +52,13 @@
                                     <option value="9">September</option>
                                     <option value="10">October</option>
                                     <option value="11">November</option>
-                                    <option value="12">December</option>
-                                    
+                                    <option value="12">December</option>                                   
                                 </select>
                             </div>
                             <div class="col-sm-4">
                                 <label>Year</label>
-                                <select class="form-control">
+                                <select required id="pay_year" name="pay_year" class="form-control">
+                                    <option value="">Select A Year</option>
                                     <?php
                                     for($i = date('Y')-1; $i <= date('Y') + 10; $i++){
                                             echo "<option value='".$i."'>".$i."</option>";
@@ -66,10 +66,11 @@
                                     ?>
                                 </select>
                             </div>                                 
-                            <div class="col-sm-4">
+                            <!--<div class="col-sm-4">
                                 <label>&nbsp;</label>
                                 <input type="button" class="btn btn-primary form-control" value="Submit">        
-                            </div>                             </div>
+                            </div> -->                            
+                            </div>
                         </div>
  
 
@@ -88,40 +89,40 @@
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <select data-pair="allowance_amt_1" id="allowance_type_1" class="form-control">
-                                    <option>Select Allowance</option>
+                                    <option value="0">Select Allowance</option>
                                     <?php foreach($allowances as $allowance): ?>
                                     <option value="<?php echo $allowance['id'] ?>"><?php echo $allowance['allowance_name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amt_1" class="form-control" id="allowance_amt_1" type="text" placeholder="Amount" disabled>
+                                <input name="allowance_amt_1" class="form-control text-right" id="allowance_amt_1" type="number" step="any" min="0" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <select  data-pair="allowance_amt_2" id="allowance_type_2" class="form-control">
-                                    <option>Select Allowance</option>
+                                    <option value="0">Select Allowance</option>
                                     <?php foreach($allowances as $allowance): ?>
                                     <option value="<?php echo $allowance['id'] ?>"><?php echo $allowance['allowance_name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amt_2" class="form-control" id="allowance_amt_2" type="text" placeholder="Amount" disabled>
+                                <input name="allowance_amt_2" class="form-control" id="allowance_amt_2" type="number" value="0" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <select  data-pair="allowance_amt_3" id="allowance_type_3" class="form-control">
-                                    <option>Select Allowance</option>
+                                    <option value="0">Select Allowance</option>
                                     <?php foreach($allowances as $allowance): ?>
                                     <option value="<?php echo $allowance['id'] ?>"><?php echo $allowance['allowance_name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amt_3" class="form-control" id="allowance_amt_3" type="number" placeholder="Amount" disabled>
+                                <input name="allowance_amt_3" class="form-control" id="allowance_amt_3" type="number" value="0" disabled>
                             </div>
                         </div>                    
                   
@@ -148,40 +149,40 @@
                          <div class="form-group">
                             <div class="col-sm-6">
                                 <select  data-pair="deduction_amt_1" id="deduction_type_1" name="deduction_type_1" class="form-control">
-                                    <option>Select Deduction</option>
+                                    <option value="0">Select Deduction</option>
                                     <?php foreach($deductions as $deduction): ?>
                                     <option value="<?php echo $deduction['id'] ?>"><?php echo $deduction['deduction_name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amt_1" class="form-control" id="deduction_amt_1" type="number" disabled placeholder="Amount">
+                                <input name="deduction_amt_1" class="form-control" id="deduction_amt_1" type="number" disabled value="0">
                             </div>
                         </div>
                           <div class="form-group">
                             <div class="col-sm-6">
                                 <select data-pair="deduction_amt_2" id="deduction_type_2" name="deduction_type_2" class="form-control">
-                                    <option>Select Deduction</option>
+                                    <option value="0">Select Deduction</option>
                                     <?php foreach($deductions as $deduction): ?>
                                     <option value="<?php echo $deduction['id'] ?>"><?php echo $deduction['deduction_name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amt_2" class="form-control" id="deduction_amt_2" type="number" disabled placeholder="Amount">
+                                <input name="deduction_amt_2" class="form-control" id="deduction_amt_2" type="number" disabled value="0">
                             </div>
                         </div>
                          <div class="form-group">
                             <div class="col-sm-6">
                                 <select data-pair="deduction_amt_3" id="deduction_type_3" name="deduction_type_3" class="form-control">
-                                    <option>Select Deduction</option>
+                                    <option value="0">Select Deduction</option>
                                     <?php foreach($deductions as $deduction): ?>
                                     <option value="<?php echo $deduction['id'] ?>"><?php echo $deduction['deduction_name'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amt_3" class="form-control" id="deduction_amt_3" type="number" disabled placeholder="Amount">
+                                <input name="deduction_amt_3" class="form-control" id="deduction_amt_3" type="number" disabled value="0">
                             </div>
                         </div>                    
                     
@@ -216,7 +217,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Basic</label>
 
                         <div class="col-sm-7">
-                                                        <input name="basic" class="form-control" id="basic" type="text" readonly="" value="1222">
+                                                        <input id="salary" name="salary" class="form-control" id="basic" type="text" readonly="" value="1222">
                         </div>
                     </div>
 
@@ -248,9 +249,9 @@
                         <label class="col-sm-3 control-label" for="field-2">Status</label>
 
                         <div class="col-sm-7">
-                            <select name="status" class="form-control">
+                            <select name="payslip_status" id="payslip_status" class="form-control">
                                 <option value="1">Paid</option>
-                                <option value="0">Unpaid</option>
+                                <option value="2">Unpaid</option>
                             </select>
                         </div> 
                     </div>

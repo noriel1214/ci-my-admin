@@ -3,8 +3,8 @@
         <div class="col-lg-12">
       <div class="page-header users-header">
         <h2>
-          Brands
-          <a  href="<?=base_url('admin/brands/create')?>" class="btn btn-success">Add a new</a>
+          Payslips
+          <a  href="<?=base_url('admin/payslips/create')?>" class="btn btn-success">Add a new</a>
         </h2>
       </div>
         </div>
@@ -15,7 +15,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Brands listing
+                    Payslips listing
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -23,33 +23,50 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>Brand ID</th>
-                                    <th>Description</th>
-                                    <th>Created From IP</th>
-                                    <th>Updated From IP</th>
+                                    <th>Employee</th>
+                                    <th>Summary</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($brands as $brand): ?>
+                                <?php foreach($payslips as $payslip): ?>
                                 <tr class="odd gradeX">
-                                    <td><?php echo $brand['id'] ?></td>
-                                    <td><?php echo $brand['description'] ?></td>
-                                    <td><?php echo $brand['created_from_ip'] ?></td>
-                                    <td><?php echo $brand['updated_from_ip'] ?></td>
+                                    <td><?php echo $payslip['fname']." ".$payslip['lname'] ?></td>
+                                    
                                     <td>
-                                        <a href="<?=base_url('admin/brands/edit/'.$brand['id'])?>" class="btn btn-info">edit</a>  
-                                        <a href="<?=base_url('admin/brands/delete/'.$brand['id'])?>" class="btn btn-danger">delete</a>
+                                        <p class="small">Basic Salary: <?php echo ($payslip['salary']) ?></p>
+                                        <p class="small">Total Allowance: <?php echo ($payslip['allowance_amt_1'] + $payslip['allowance_amt_2'] + $payslip['allowance_amt_3']) ?></p>
+                                        <p class="small">Basic Deduction: <?php echo ($payslip['deduction_amt_1'] + $payslip['deduction_amt_2'] + $payslip['deduction_amt_3']) ?></p>
+                                        <hr>
+                                        <p class="small">Net Salary: <?php echo ($payslip['salary'] + $payslip['allowance_amt_1'] + $payslip['allowance_amt_2'] + $payslip['allowance_amt_3'] - $payslip['deduction_amt_1'] - $payslip['deduction_amt_2'] - $payslip['deduction_amt_3']) ?></p>
+                                    </td>
+                                    <td><?php echo $payslip['month_name']." ".$payslip['pay_year'] ?></td>
+                                    <td><?php 
+                                        switch ($payslip['payslip_status']) 
+                                        {
+                                            case "0":
+                                                echo "Paid";
+                                                break;
+                                            default:
+                                                echo "Unpaid";
+                                                break;
+                                        }
+                                    ?></td>
+                                    <td>
+                                        <a href="<?=base_url('admin/payslips/edit/'.$payslip['id'])?>" class="btn btn-info">edit</a>  
+                                        <a href="<?=base_url('admin/payslips/delete/'.$payslip['id'])?>" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
                             <tfooter>
                                 <tr>
-                                    <th>Brand ID</th>
-                                    <th>Description</th>
-                                    <th>Created From IP</th>
-                                    <th>Updated From IP</th>
+                                    <th>Employee</th>
+                                    <th>Summary</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </tfooter>

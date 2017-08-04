@@ -10,10 +10,11 @@ $(document).ready(function(){
             success: function(data) {
                  $("select[name=emp_id]").empty();
                 $("select[name=emp_id]").append("<option value=''>No Record Found</option>");
-
+                
+                $("select[name=emp_id]").empty();
                 $.each(data.empsbydept, function(index, rec) {
-                    $("select[name=emp_id]").empty();
-                    $("select[name=emp_id]").append("<option value='"+rec.emp_id+"'>"+rec.fname + " " + rec.lname+"</option>");
+                    
+                    $("select[name=emp_id]").append("<option value='"+rec.id+"'>"+rec.fname + " " + rec.lname+"</option>");
                 });
                 }
         });
@@ -25,7 +26,7 @@ $(document).ready(function(){
            var d3 = parseFloat($('#deduction_amt_3').val() === "" ? 0 : $('#deduction_amt_3').val());
             var total_deduction  =d1+d2+d3;
         $('#total_deduction').val(total_deduction);
-        $('#net_salary').val(parseFloat($('#basic').val()) + parseFloat($('#total_allowance').val()) - parseFloat($('#total_deduction').val()));
+        $('#net_salary').val(parseFloat($('#salary').val()) + parseFloat($('#total_allowance').val()) - parseFloat($('#total_deduction').val()));
         
     });
 
@@ -35,7 +36,7 @@ $(document).ready(function(){
            var a3 = parseFloat($('#allowance_amt_3').val() === "" ? 0 : $('#allowance_amt_3').val());
             var total_allowance  =a1+a2+a3;
         $('#total_allowance').val(total_allowance);
-        $('#net_salary').val(parseFloat($('#basic').val()) + parseFloat($('#total_allowance').val()) - parseFloat($('#total_deduction').val()));
+        $('#net_salary').val(parseFloat($('#salary').val()) + parseFloat($('#total_allowance').val()) - parseFloat($('#total_deduction').val()));
     });
     
     $('#allowance_type_1, #allowance_type_2, #allowance_type_3, #deduction_type_1, #deduction_type_2, #deduction_type_3')
@@ -53,13 +54,11 @@ $(document).ready(function(){
    });
     
     $('#allowance_amt_1, #allowance_amt_2, #allowance_amt_3, #deduction_amt_1, #deduction_amt_2, #deduction_amt_3')
-            .on("keypress", function(evt){
+            .on("keypressxxx", function(evt){
           var charCode = (evt.which) ? evt.which : evt.keyCode;
           if (charCode !== 46 && charCode > 31 
             && (charCode < 48 || charCode > 57))
              return false;
-
-            
           return true;        
     });
     
