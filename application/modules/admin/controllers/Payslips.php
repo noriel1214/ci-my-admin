@@ -8,13 +8,14 @@ class Payslips extends Admin_Controller {
         $this->load->model(array('admin/allowance'));
         $this->load->model(array('admin/deduction'));
         $this->load->model(array('admin/department'));
+        $this->load->model(array('admin/employee'));
         $this->load->model(array('admin/month'));
     }
 
 public function index() {
         //$payslips = $this->payslip->get_all();
         
-        $this->db->select('p.*, e.fname, e.lname, m.month_name');
+        $this->db->select('p.*, e.fname, e.lname, e.starting_salary, m.month_name');
         $this->db->from('payslips p, employees e, months m');
         $this->db->where('p.emp_id = e.id');
         $this->db->where('p.pay_month = m.id');

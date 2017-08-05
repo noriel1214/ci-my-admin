@@ -61,6 +61,13 @@ public function index() {
         $result['status']="successful!";
         print json_encode($result);
     }
+    public function getemployeesalary($emp_id){
+        $query = $this->employee->get($emp_id);
+
+        
+        print json_encode($query);
+
+    }
     
     private function storeinputs(){
             $data['fname'] = $this->input->post('fname');

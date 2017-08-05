@@ -109,7 +109,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amt_2" class="form-control" id="allowance_amt_2" type="number" value="0" disabled>
+                                <input name="allowance_amt_2" class="form-control text-right" id="allowance_amt_2" type="number" disabled step="any" min="0">
                             </div>
                         </div>
                         <div class="form-group">
@@ -122,7 +122,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="allowance_amt_3" class="form-control" id="allowance_amt_3" type="number" value="0" disabled>
+                                <input name="allowance_amt_3" class="form-control text-right" id="allowance_amt_3" type="number" disabled step="any" min="0">
                             </div>
                         </div>                    
                   
@@ -156,7 +156,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amt_1" class="form-control" id="deduction_amt_1" type="number" disabled value="0">
+                                <input name="deduction_amt_1" class="form-control text-right" id="deduction_amt_1" type="number" disabled step="any" min="0">
                             </div>
                         </div>
                           <div class="form-group">
@@ -169,7 +169,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amt_2" class="form-control" id="deduction_amt_2" type="number" disabled value="0">
+                                <input name="deduction_amt_2" class="form-control text-right" id="deduction_amt_2" type="number" disabled step="any" min="0">
                             </div>
                         </div>
                          <div class="form-group">
@@ -182,7 +182,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <input name="deduction_amt_3" class="form-control" id="deduction_amt_3" type="number" disabled value="0">
+                                <input name="deduction_amt_3" class="form-control text-right" id="deduction_amt_3" type="number" disabled step="any" min="0">
                             </div>
                         </div>                    
                     
@@ -241,7 +241,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Net Salary</label>
 
                         <div class="col-sm-7">
-                            <input name="net_salary" class="form-control" id="net_salary" type="text" readonly="" value="1222">
+                            <input name="net_salary" class="form-control" id="net_salary" type="text" readonly="">
                         </div>
                     </div>
 

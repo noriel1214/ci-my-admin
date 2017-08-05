@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h2>
-                Create New Employee
+                Edit Employee
                 <a  href="<?= base_url('admin/employees') ?>" class="btn btn-warning pull-right">Go back to employees listing</a>
             </h2>
         </div>

@@ -36,7 +36,7 @@
                                     <td><?php echo $payslip['fname']." ".$payslip['lname'] ?></td>
                                     
                                     <td>
-                                        <p class="small">Basic Salary: <?php echo ($payslip['salary']) ?></p>
+                                        <p class="small">Basic Salary: <?php echo (number_format($payslip['starting_salary'], 2)) ?></p>
                                         <p class="small">Total Allowance: <?php echo ($payslip['allowance_amt_1'] + $payslip['allowance_amt_2'] + $payslip['allowance_amt_3']) ?></p>
                                         <p class="small">Basic Deduction: <?php echo ($payslip['deduction_amt_1'] + $payslip['deduction_amt_2'] + $payslip['deduction_amt_3']) ?></p>
                                         <hr>
@@ -46,7 +46,7 @@
                                     <td><?php 
                                         switch ($payslip['payslip_status']) 
                                         {
-                                            case "0":
+                                            case "1":
                                                 echo "Paid";
                                                 break;
                                             default:
