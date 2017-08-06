@@ -37,12 +37,7 @@ public function index() {
             $this->payslip->insert($data);
             redirect('/admin/payslips', 'refresh');
         }
-        $data['allowances']=$this->allowance->get_all();
-        $data['deductions']=$this->deduction->get_all();
-        $data['departments']=$this->department->get_all();
-        
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_create";
-        $this->load->view($this->_container, $data);
+        $this->push_payslip_data(0);
     }
 
     public function edit($id) {
@@ -77,6 +72,24 @@ public function index() {
         $data = $this->payslip->get_all();
         print_r($data);
     }    
+    
+    public function getempsbydept($dept_id){ 
+        $this->push_payslip_data($dept_id);
+    }
+    
+    private function push_payslip_data($dept_id){
+        $query = $this->db->get_where("employees", array('dept_id' => $dept_id));
+        $data['empsbydept'] = $query->result_array();
+        
+        $data['dept_id'] = $dept_id;
+        $data['allowances']=$this->allowance->get_all();
+        $data['deductions']=$this->deduction->get_all();
+        $data['departments']=$this->department->get_all();
+        
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_create";
+        $this->load->view($this->_container, $data);
+    }
+    
     private function storeinputs(){
             $data['dept_id'] = $this->input->post('dept_id');
             $data['emp_id'] = $this->input->post('emp_id');
@@ -102,4 +115,5 @@ public function index() {
             $data['payslip_status'] = $this->input->post('payslip_status');
             return $data;
     }
+    
 }

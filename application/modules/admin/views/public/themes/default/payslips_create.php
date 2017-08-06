@@ -22,18 +22,20 @@
                         <div class="form-group">
                             <div class="col-sm-3">
                                 <label>Department</label>
-                                <select required id="dept_id" name="dept_id" class="form-control">
+                                <select onchange="window.location='<?php echo base_url('admin/payslips/getempsbydept/') ?>' + $(this).val();" required id="dept_id" name="dept_id" class="form-control">
                                     <option>Select A Department</option>
                                     <?php foreach($departments as $department): ?>
-                                    <option value="<?php echo $department['id']?>"><?php echo $department['dept_name']?></option>
+                                    <option <?php if($dept_id ===$department["id"]){echo "selected";} ?> value="<?php echo $department['id']?>"><?php echo $department['dept_name']?></option>
                                     <?php endforeach; ?>
-                                    
                                 </select>
                             </div>
                             <div class="col-sm-3">
                                 <label>Employee</label>
-                                <select required id="emp_id" name="emp_id" class="form-control">
+                                <select onchange="window.location='<?php echo base_url('admin/payslips/getempsbydept/') ?>' + $(this).val();" required id="emp_id" name="emp_id" class="form-control">
                                     <option value="">Select A Department First</option>
+                                    <?php foreach($empsbydept as $emp): ?>
+                                    <option value="<?php echo $emp['id']?>"><?php echo $emp['fname']." ". $emp['lname'] ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>                            
                             <div class="col-sm-6">
@@ -217,7 +219,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Basic</label>
 
                         <div class="col-sm-7">
-                                                        <input id="salary" name="salary" class="form-control" id="basic" type="text" readonly="" value="1222">
+                                                        <input id="salary" name="salary" class="form-control" id="basic" type="text" readonly="" pattern="[0-9]+([\,][0-9]+)?" min="0" step="any">
                         </div>
                     </div>
 

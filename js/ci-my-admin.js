@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    $("select[name=dept_id]").on("change", function(){
+    /*$("select[name=dept_id]").on("change", function(){
         var dept_id = $(this).val();
         $.ajax({
             type:"POST",
@@ -21,7 +21,7 @@ $(document).ready(function(){
                 });
                 }
         });
-    });
+    });*/
     
      $("select[name=emp_id]").on("change", function(){
          var emp_id = $(this).val();
@@ -31,8 +31,8 @@ $(document).ready(function(){
              data:{"emp_id":emp_id},
              dataType: "json",
              success:function(data){
- 
-                 $('#salary').val(parseFloat(data.starting_salary.toString().replace(/[^\d\.]/g,'')).toFixed(2));
+                 
+                 $('#salary').val(data.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                  
              }
          })

@@ -22,9 +22,7 @@ public function index() {
             $this->employee->insert($data);
             redirect('/admin/employees', 'refresh');
         }
-        $data['departments'] = $this->department->get_all();
-        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "employees_create";
-        $this->load->view($this->_container, $data);
+        $this->push_create_data();
     }
 
     public function edit($id) {
@@ -62,10 +60,11 @@ public function index() {
         print json_encode($result);
     }
     public function getemployeesalary($emp_id){
-        $query = $this->employee->get($emp_id);
-
+        //$query = $this->employee->get($emp_id);
+        //print json_encode($query);
         
-        print json_encode($query);
+        $output = $this->employee->get($emp_id)->starting_salary;
+        print $output;
 
     }
     
@@ -97,5 +96,12 @@ public function index() {
             $data['bank_name'] = $this->input->post('bank_name');
             $data['branch_name'] = $this->input->post('branch_name');             
             return $data;
+    }
+    
+    private function push_create_data()
+    {
+        $data['departments'] = $this->department->get_all();
+        $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "employees_create";
+        $this->load->view($this->_container, $data);
     }
 }
