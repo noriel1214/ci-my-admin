@@ -236,7 +236,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Basic</label>
 
                         <div class="col-sm-7">
-                                                        <input id="salary" name="salary" class="form-control text-right" id="basic" type="text" readonly="" value="<?php echo number_format($payslip->starting_salary,2) ?>">
+                                                        <input id="salary" name="salary" class="form-control text-right" id="basic" type="text" readonly="" value="<?php echo number_format($payslip->salary,2) ?>">
                         </div>
                     </div>
 

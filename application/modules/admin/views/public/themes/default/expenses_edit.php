@@ -29,12 +29,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Expense Amount</label>
-                                    <input value="<?php echo $expense->exp_amt ?>" id="exp_amt" name="exp_amt" class="form-control" >
+                                    <input type="number" min="0" step="any" value="<?php echo $expense->exp_amt ?>" id="exp_amt" name="exp_amt" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label>Expense Date</label>
-                                    <input  value="<?php echo $expense->exp_dt ?>" id="exp_dt" name="exp_dt" class="form-control" >
-                                </div>
+                                    <div class="input-group">
+                                        <input value="<?php echo date_format(date_create($expense->exp_dt), "m/d/Y")  ?>" class="form-control" type="text" id="exp_dt" name="exp_dt">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" data-toggle="datepicker" data-target-name="exp_dt">
+                                                <span class="fa fa-calendar"></span>    
+                                            </button>  
+                                        </span>
+                                    </div>
+                                </div> 
 
                                 <button type="submit" class="btn btn-primary">Submit Button</button>
                             </form>

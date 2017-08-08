@@ -26,8 +26,6 @@
                                     <th>Group ID</th>
                                     <th>Name</th>
                                     <th>Description</th>
-                                    <th>Created From IP</th>
-                                    <th>Updated From IP</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -38,8 +36,6 @@
                                             <td><?=$group->id?></td>
                                             <td><?=$group->name?></td>
                                             <td><?=$group->description?></td>
-                                            <td><?=$group->created_from_ip?></td>
-                                            <td><?=$group->updated_from_ip?></td>
                                             <td>
                                                 <a href="<?= base_url('admin/user-groups/edit/'.$group->id) ?>" class="btn btn-info">edit</a>  
                                                 <a href="<?= base_url('admin/user-groups/delete/'.$group->id) ?>" class="btn btn-danger">delete</a>
@@ -48,8 +44,6 @@
                                     <?php endforeach; ?>
                                 <?php else: ?>
                                     <tr class="even gradeC">
-                                        <td>No data</td>
-                                        <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
                                         <td>No data</td>
@@ -65,8 +59,6 @@
                                     <th>Group ID</th>
                                     <th>Name</th>
                                     <th>Description</th>
-                                    <th>Created From IP</th>
-                                    <th>Updated From IP</th>
                                     <th>Action</th>
                                 </tr>
                             </tfooter>

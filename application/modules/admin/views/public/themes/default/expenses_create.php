@@ -29,11 +29,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Expense Amount</label>
-                                    <input id="exp_amt" name="exp_amt" class="form-control" >
+                                    <input type="number" step="any" min="0" id="exp_amt" name="exp_amt" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label>Expense Date</label>
-                                    <input id="exp_dt" name="exp_dt" class="form-control" >
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" id="exp_dt" name="exp_dt">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" data-toggle="datepicker" data-target-name="exp_dt">
+                                                <span class="fa fa-calendar"></span>    
+                                            </button>  
+                                        </span>
+                                    </div>
                                 </div>                                
                                 <button type="submit" class="btn btn-primary">Create Expense</button>
                                 <button type="reset" class="btn btn-default">Reset Fields</button>

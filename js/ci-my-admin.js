@@ -98,6 +98,21 @@ $(document).ready(function(){
        window.location.href = root + "/admin/payslips/index/" + $('#pay_month').val() + "/" + $('#pay_year').val(); 
     });
     
+//Date Picker Functions
+$('[data-toggle=datepicker]').each(function() {
+  var target = $(this).data('target-name');
+  var t = $('input[name=' + target + ']');
+  t.datepicker({
+      format: 'mm/dd/yyyy',
+    autoclose: true,
+    todayHighlight: true,
+  });
+  $(this).on("click", function() {
+    t.datepicker("show");
+  });
+});
+    
+    
 });
 
 function FormatDecimal(nStr)

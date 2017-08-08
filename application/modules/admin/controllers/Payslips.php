@@ -15,7 +15,7 @@ class Payslips extends Admin_Controller {
 public function index($month, $year) {
         //$payslips = $this->payslip->get_all();
         
-        $this->db->select('p.*, e.fname, e.lname, e.starting_salary, m.month_name');
+        $this->db->select('p.*, e.fname, e.lname, m.month_name');
         $this->db->from('payslips p, employees e, months m');
         $this->db->where('p.emp_id = e.id');
         $this->db->where('p.pay_month = m.id');
@@ -53,14 +53,13 @@ public function index($month, $year) {
             redirect('/admin/payslips/index/'.$data['pay_month'].'/'.$data['pay_year'], 'refresh');
         }
 
-        //$payslip1 = $this->payslip->get($id);
+        $payslip = $this->payslip->get($id);
         
-        $this->db->select('p.*, e.starting_salary');
-        $this->db->from('payslips p, employees e');
-        $this->db->where('p.emp_id = e.id');
-        $this->db->where('p.id = '.$id);
-        
-         $payslip= $this->db->get()->row();
+        //$this->db->select('p.*, e.starting_salary');
+        //$this->db->from('payslips p, employees e');
+        //$this->db->where('p.emp_id = e.id');
+        //$this->db->where('p.id = '.$id);
+        //$payslip= $this->db->get()->row();
    
         
         //return $this->db->get_where($this->table_name, array($this->primary_key => $id))->row();
@@ -73,7 +72,7 @@ public function index($month, $year) {
         $data['employees'] = $query->result_array();
         $data["months"] = $this->month->get_all();        
         $data['payslip'] = $payslip;
-        $data['net_salary'] = number_format($payslip->starting_salary+$payslip->allowance_amt_1+$payslip->allowance_amt_2+$payslip->allowance_amt_3
+        $data['net_salary'] = number_format($payslip->salary+$payslip->allowance_amt_1+$payslip->allowance_amt_2+$payslip->allowance_amt_3
                 -$payslip->deduction_amt_1-$payslip->deduction_amt_2-$payslip->deduction_amt_3, 2);
         
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_edit";
@@ -82,7 +81,7 @@ public function index($month, $year) {
 
     public function delete($id){
         $this->payslip->delete($id);
-        redirect('/admin/payslips', 'refresh');
+        redirect('/admin/payslips/index/'.date('m').'/'.date('Y'), 'refresh');
     }
     
     public function payslips_list(){
@@ -113,7 +112,7 @@ public function index($month, $year) {
             $data['emp_id'] = $this->input->post('emp_id');
             $data['pay_month'] = $this->input->post('pay_month');     
             $data['pay_year'] = $this->input->post('pay_year');     
-            $data['salary'] = $this->input->post('salary');     
+            $data['salary'] = str_replace(",", "", $this->input->post('salary'));
             $data['deduction_type_1'] = $this->input->post('deduction_type_1')=== null ? 0:$this->input->post('deduction_type_1');          
             $data['deduction_amt_1'] = $this->input->post('deduction_amt_1') === null ? 0:$this->input->post('deduction_amt_1');     
             $data['deduction_type_2'] = $this->input->post('deduction_type_2')=== null ? 0:$this->input->post('deduction_type_2');     

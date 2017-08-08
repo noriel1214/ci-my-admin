@@ -23,12 +23,12 @@
                             <i class="fa fa-comments fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
+                            <div class="huge"><?php echo $empcount ?></div>
                             <div>Total Employees</div>
                         </div>
                     </div>
                 </div>
-                <a href="#">
+                <a href="<?= base_url('admin/employees') ?>" >
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

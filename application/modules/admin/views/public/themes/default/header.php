@@ -13,6 +13,7 @@
 
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?= base_url() ?>assets/admin/css/bootstrap-datepicker3.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
         <link href="<?= base_url() ?>assets/admin/css/metisMenu.min.css" rel="stylesheet">

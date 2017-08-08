@@ -6,6 +6,7 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?= base_url() ?>assets/admin/js/bootstrap.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/bootstrap-datepicker.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="<?= base_url() ?>assets/admin/js/metisMenu.min.js"></script>

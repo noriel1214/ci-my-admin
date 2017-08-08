@@ -36,9 +36,14 @@
                                     <input value='<?php echo $employee->suffix ?>' id="suffix" name="suffix" class="form-control">
                                 </div>                            
                                 <div class="form-group">
-                                    <label>Birthday</label>
-                                    <input value='<?php echo $employee->birthday ?>' id="birthday" name="birthday" class="form-control">
-                                </div>                            
+                                  <label>Birthday</label>
+                                  <div class="input-group">
+                                    <input value='<?php echo date_format(date_create($employee->birthday), "m/d/Y")  ?>' type="text" class="form-control" name="birthday" id="birthday" />
+                                    <span class="input-group-btn">
+                                      <button type="button" class="btn btn-default" data-toggle="datepicker" data-target-name="birthday"><span class="fa fa-calendar"></span></button>
+                                    </span>
+                                  </div>
+                                </div>                             
                                 <div class="form-group">
                                     <label>Gender</label>
                                     <input value='<?php echo $employee->gender ?>' id="gender" name="gender" class="form-control">
@@ -134,9 +139,14 @@
                                     <input value='<?php echo $employee->designation_id ?>' id="designation_id" name="designation_id" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Hire Date</label>
-                                    <input value='<?php echo $employee->hire_date ?>' id="hire_date" name="hire_date" class="form-control">
-                                </div>                            
+                                  <label>Hire Date</label>
+                                  <div class="input-group">
+                                    <input value='<?php echo date_format(date_create($employee->hire_date), "m/d/Y") ?>' type="text" class="form-control" name="hire_date" id="hire_date" />
+                                    <span class="input-group-btn">
+                                      <button type="button" class="btn btn-default" data-toggle="datepicker" data-target-name="hire_date"><span class="fa fa-calendar"></span></button>
+                                    </span>
+                                  </div>
+                                </div>                             
                                 <div class="form-group">
                                     <label>Starting Salary</label>
                                     <input value='<?php echo $employee->starting_salary ?>' id="starting_salary" name="starting_salary" class="form-control">

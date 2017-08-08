@@ -34,6 +34,9 @@ public function index() {
 
         $employee = $this->employee->get($id);
 
+        //$this->employee->birthday= date_format(date_create($employee->birthday), "m/d/Y");
+
+        
         $data['employee'] = $employee;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "employees_edit";
         $this->load->view($this->_container, $data);
@@ -74,7 +77,7 @@ public function index() {
             $data['lname'] = $this->input->post('lname');
             $data['mname'] = $this->input->post('mname');
             $data['contact_name'] = $this->input->post('contact_name');
-            $data['birthday'] = $this->input->post('birthday');
+            $data['birthday'] = date("Y-m-d", strtotime($this->input->post('birthday')));
             $data['gender'] = $this->input->post('gender');
             $data['phone'] = $this->input->post('phone');
             $data['addrline1'] = $this->input->post('addrline1');
@@ -89,7 +92,7 @@ public function index() {
             $data['email'] = $this->input->post('email');
             $data['dept_id'] = $this->input->post('dept_id');
             $data['designation_id'] = $this->input->post('designation_id');
-            $data['hire_date'] = $this->input->post('hire_date');
+            $data['hire_date'] =date("Y-m-d", strtotime($this->input->post('hire_date')));
             $data['starting_salary'] = $this->input->post('starting_salary');
             $data['emp_status'] = $this->input->post('emp_status');
             $data['acct_name'] = $this->input->post('acct_name');

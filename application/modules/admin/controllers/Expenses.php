@@ -33,6 +33,8 @@ public function index() {
         }
 
         $expense = $this->expense->get($id);
+        
+echo number_format($expense->exp_amt, 2);
 
         $data['expense'] = $expense;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "expenses_edit";
@@ -52,6 +54,7 @@ public function index() {
             $data['exp_title'] = $this->input->post('exp_title');
             $data['exp_desc'] = $this->input->post('exp_desc');
             $data['exp_amt'] = $this->input->post('exp_amt');
+            $data['exp_dt'] = date("Y-m-d", strtotime($this->input->post('exp_dt')));
             return $data;
     }
 }
