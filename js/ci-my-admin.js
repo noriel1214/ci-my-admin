@@ -1,10 +1,11 @@
 $(document).ready(function(){
-    
-    /*$("select[name=dept_id]").on("change", function(){
+    var root=  window.location.protocol + "//" + window.location.hostname + "/ci-my-admin";
+
+    $("select[name=dept_id]").on("change", function(){
         var dept_id = $(this).val();
         $.ajax({
             type:"POST",
-            url:"http://localhost/ci-my-admin/admin/employees/empbydept/" + dept_id,
+            url: root + "/admin/employees/empbydept/" + dept_id,
             data:{"dept_id" : dept_id},
             dataType: "json",
             success: function(data) {
@@ -21,17 +22,16 @@ $(document).ready(function(){
                 });
                 }
         });
-    });*/
+    });
     
      $("select[name=emp_id]").on("change", function(){
          var emp_id = $(this).val();
          $.ajax({
              type:"POST",
-             url:"http://localhost/ci-my-admin/admin/employees/getemployeesalary/" + emp_id,
+             url: root + "/admin/employees/getemployeesalary/" + emp_id,
              data:{"emp_id":emp_id},
              dataType: "json",
              success:function(data){
-                 
                  $('#salary').val(data.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                  
              }
@@ -45,15 +45,12 @@ $(document).ready(function(){
            var d2 = parseFloat($('#deduction_amt_2').val() === "" ? 0 : $('#deduction_amt_2').val());
            var d3 = parseFloat($('#deduction_amt_3').val() === "" ? 0 : $('#deduction_amt_3').val());
             var total_deduction  =d1+d2+d3;
-            total_deduction = parseFloat(total_deduction.toString().replace(/[^\d\.]/g,'') );
-            var total_allowance=$('#total_allowance').val();
-            total_allowance = parseFloat(total_allowance.toString().replace(/[^\d\.]/g,'') );
-            var salary=$('#salary').val();
-            salary = parseFloat(salary.toString().replace(/[^\d\.]/g,'') );
+            var total_allowance=parseFloat($('#total_allowance').val().replace(/[^\d\.]/g,''));
+            var salary=parseFloat($('#salary').val().replace(/[^\d\.]/g,''));
             var net_salary=salary+total_allowance-total_deduction;
             
-        $('#total_deduction').val(total_deduction.toFixed(2));
-        $('#net_salary').val(net_salary.toFixed(2));
+        $('#total_deduction').val(FormatDecimal(total_deduction.toFixed(2)));
+        $('#net_salary').val(FormatDecimal(net_salary.toFixed(2)));
         
     });
 
@@ -62,15 +59,15 @@ $(document).ready(function(){
            var a2 = parseFloat($('#allowance_amt_2').val() === "" ? 0 : $('#allowance_amt_2').val());
            var a3 = parseFloat($('#allowance_amt_3').val() === "" ? 0 : $('#allowance_amt_3').val());
 
-          var total_allowance  =a1+a2+a3;
-          total_allowance = parseFloat(total_allowance.toString().replace(/[^\d\.]/g,'') );
-            var total_deduction=$('#total_deduction').val();
-            total_deduction = parseFloat(total_deduction.toString().replace(/[^\d\.]/g,'') );
-            var salary=$('#salary').val();
-            salary = parseFloat(salary.toString().replace(/[^\d\.]/g,'') );
-            var net_salary=salary+total_allowance-total_deduction;            
-        $('#total_allowance').val(total_allowance.toFixed(2));
-        $('#net_salary').val(net_salary.toFixed(2));
+            var total_allowance  =a1+a2+a3;
+            var total_deduction=parseFloat($('#total_deduction').val().replace(/[^\d\.]/g,''));
+            var salary=parseFloat($('#salary').val().replace(/[^\d\.]/g,''));
+            var net_salary=salary+total_allowance-total_deduction; 
+            
+            
+            
+        $('#total_allowance').val(FormatDecimal(total_allowance.toFixed(2)));
+        $('#net_salary').val(FormatDecimal(net_salary.toFixed(2)));
     });
     
     $('#allowance_type_1, #allowance_type_2, #allowance_type_3, #deduction_type_1, #deduction_type_2, #deduction_type_3')
@@ -96,4 +93,23 @@ $(document).ready(function(){
           return true;        
     });
     
+    $('.search-payslip').on("click", function(){
+        
+       window.location.href = root + "/admin/payslips/index/" + $('#pay_month').val() + "/" + $('#pay_year').val(); 
+    });
+    
 });
+
+function FormatDecimal(nStr)
+{
+    nStr.toString().replace(/[^\d\.]/g,'');
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
+}

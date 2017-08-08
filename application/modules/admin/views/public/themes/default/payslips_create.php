@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <h2>
                 Create Payslip
-                <a  href="<?= base_url('admin/payslips') ?>" class="btn btn-warning">Go back to payslips listing</a>
+                <a  href="<?= base_url('admin/payslips/index/'.date("m").'/'.date("Y")) ?>" class="btn btn-warning">Go back to payslips listing</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <div class="col-sm-3">
                                 <label>Department</label>
-                                <select onchange="window.location='<?php echo base_url('admin/payslips/getempsbydept/') ?>' + $(this).val();" required id="dept_id" name="dept_id" class="form-control">
+                                <select required id="dept_id" name="dept_id" class="form-control">
                                     <option>Select A Department</option>
                                     <?php foreach($departments as $department): ?>
                                     <option <?php if($dept_id ===$department["id"]){echo "selected";} ?> value="<?php echo $department['id']?>"><?php echo $department['dept_name']?></option>
@@ -31,11 +31,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <label>Employee</label>
-                                <select onchange="window.location='<?php echo base_url('admin/payslips/getempsbydept/') ?>' + $(this).val();" required id="emp_id" name="emp_id" class="form-control">
+                                <select required id="emp_id" name="emp_id" class="form-control">
                                     <option value="">Select A Department First</option>
-                                    <?php foreach($empsbydept as $emp): ?>
-                                    <option value="<?php echo $emp['id']?>"><?php echo $emp['fname']." ". $emp['lname'] ?></option>
-                                    <?php endforeach; ?>
                                 </select>
                             </div>                            
                             <div class="col-sm-6">
@@ -43,18 +40,9 @@
                                 <label>Month</label>
                                 <select required id="pay_month" name="pay_month" class="form-control">
                                     <option value="">Select A Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>                                   
+                                    <?php foreach($months as $month): ?>
+                                    <option value="<?php echo $month['id'] ?>"><?php echo $month['month_name'] ?></option>
+                                    <?php endforeach;  ?>
                                 </select>
                             </div>
                             <div class="col-sm-4">
@@ -219,7 +207,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Basic</label>
 
                         <div class="col-sm-7">
-                                                        <input id="salary" name="salary" class="form-control" id="basic" type="text" readonly="" pattern="[0-9]+([\,][0-9]+)?" min="0" step="any">
+                                                        <input id="salary" name="salary" class="form-control text-right" id="basic" type="text" readonly="" pattern="[0-9]+([\,][0-9]+)?" min="0" step="any">
                         </div>
                     </div>
 
@@ -227,7 +215,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Total Allowance</label>
 
                         <div class="col-sm-7">
-                            <input name="total_allowance" class="form-control" id="total_allowance" type="text" readonly="" value="0">
+                            <input name="total_allowance" class="form-control text-right" id="total_allowance" type="text" readonly="" value="0">
                         </div>
                     </div>
 
@@ -235,7 +223,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Total Deduction</label>
 
                         <div class="col-sm-7">
-                            <input name="total_deduction" class="form-control" id="total_deduction" type="text" readonly="" value="0">
+                            <input name="total_deduction" class="form-control text-right" id="total_deduction" type="text" readonly="" value="0">
                         </div>
                     </div>
 
@@ -243,7 +231,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Net Salary</label>
 
                         <div class="col-sm-7">
-                            <input name="net_salary" class="form-control" id="net_salary" type="text" readonly="">
+                            <input name="net_salary" class="form-control text-right" id="net_salary" type="text" readonly="">
                         </div>
                     </div>
 

@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-lg-12">
             <h2>
-                Create Payslip
-                <a  href="<?= base_url('admin/payslips') ?>" class="btn btn-warning">Go back to payslips listing</a>
+                Edit Payslip
+                <a  href="<?= base_url('admin/payslips/index/'.$payslip->pay_month.'/'.$payslip->pay_year) ?>" class="btn btn-warning">Go back to payslips listing</a>
             </h2>
         </div>
         <!-- /.col-lg-12 -->
@@ -112,7 +112,7 @@
                                 <?php if($payslip->allowance_amt_2 > 0): ?>
                                     <input name="allowance_amt_2" class="form-control  text-right" id="allowance_amt_2" type="number" value="<?php echo $payslip->allowance_amt_2 ?>"  step="any" min="0">
                                 <?php else: ?>
-                                    <input name="allowance_amt_2" class="form-control  text-right" id="allowance_amt_2" type="number" value="0" disabled>
+                                    <input name="allowance_amt_2" class="form-control  text-right" id="allowance_amt_2" type="number" value="0" disabled  step="any" min="0">
                                 <?php endif; ?>  
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                                 <?php if($payslip->allowance_amt_3 > 0): ?>
                                     <input name="allowance_amt_3" class="form-control text-right" id="allowance_amt_3" type="number" value="<?php echo $payslip->allowance_amt_3 ?>"  step="any" min="0">
                                 <?php else: ?>
-                                    <input name="allowance_amt_3" class="form-control text-right" id="allowance_amt_3" type="number" value="0" disabled>
+                                    <input name="allowance_amt_3" class="form-control text-right" id="allowance_amt_3" type="number" value="0" disabled  step="any" min="0">
                                 <?php endif; ?>  
                             </div>
                         </div>                    
@@ -166,7 +166,7 @@
                                 <?php if($payslip->deduction_amt_1 > 0): ?>
                                     <input name="deduction_amt_1" class="form-control text-right" id="deduction_amt_1" type="number" value="<?php echo $payslip->deduction_amt_1 ?>"  step="any" min="0">
                                 <?php else: ?>
-                                    <input name="deduction_amt_1" class="form-control text-right" id="deduction_amt_1" type="number" disabled value="0">
+                                    <input name="deduction_amt_1" class="form-control text-right" id="deduction_amt_1" type="number" disabled value="0"  step="any" min="0">
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                                 <?php if($payslip->deduction_amt_2 > 0): ?>
                                     <input name="deduction_amt_2" class="form-control text-right" id="deduction_amt_2" type="number" value="<?php echo $payslip->deduction_amt_2 ?>"  step="any" min="0">
                                 <?php else: ?>
-                                    <input name="deduction_amt_2" class="form-control text-right" id="deduction_amt_2" type="number" disabled value="0">
+                                    <input name="deduction_amt_2" class="form-control text-right" id="deduction_amt_2" type="number" disabled value="0"   step="any" min="0">
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                 <?php if($payslip->deduction_amt_3 > 0): ?>
                                     <input name="deduction_amt_3" class="form-control text-right" id="deduction_amt_3" type="number" value="<?php echo $payslip->deduction_amt_3 ?>"  step="any" min="0">
                                 <?php else: ?>
-                                    <input name="deduction_amt_3" class="form-control text-right" id="deduction_amt_3" type="number" disabled value="0">
+                                    <input name="deduction_amt_3" class="form-control text-right" id="deduction_amt_3" type="number" disabled value="0"  step="any" min="0">
                                 <?php endif; ?>
                             </div>
                         </div>                    
@@ -236,7 +236,7 @@
                         <label class="col-sm-3 control-label" for="field-1">Basic</label>
 
                         <div class="col-sm-7">
-                                                        <input id="salary" name="salary" class="form-control text-right" id="basic" type="text" readonly="" value="<?php echo number_format($payslip->salary,2) ?>">
+                                                        <input id="salary" name="salary" class="form-control text-right" id="basic" type="text" readonly="" value="<?php echo number_format($payslip->starting_salary,2) ?>">
                         </div>
                     </div>
 

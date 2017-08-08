@@ -12,19 +12,25 @@ class Payslips extends Admin_Controller {
         $this->load->model(array('admin/month'));
     }
 
-public function index() {
+public function index($month, $year) {
         //$payslips = $this->payslip->get_all();
         
         $this->db->select('p.*, e.fname, e.lname, e.starting_salary, m.month_name');
         $this->db->from('payslips p, employees e, months m');
         $this->db->where('p.emp_id = e.id');
         $this->db->where('p.pay_month = m.id');
+        $this->db->where('p.pay_month = '.$month);
+        $this->db->where('p.pay_year = '.$year);
+        
         $query = $this->db->get();        
         $payslips= $query->result_array();
                 
         $data['allowances']=$this->allowance->get_all();
         $data['deductions']=$this->deduction->get_all();
         $data['departments']=$this->department->get_all();
+        $data["months"] = $this->month->get_all();
+        $data["pay_month"] = $month;
+        $data["pay_year"] = $year;
         
         $data['payslips'] = $payslips;
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_list";
@@ -35,7 +41,7 @@ public function index() {
         if ($this->input->post('emp_id')) {
             $data=$this->storeinputs();
             $this->payslip->insert($data);
-            redirect('/admin/payslips', 'refresh');
+            redirect('/admin/payslips/index/'.$data['pay_month'].'/'.$data['pay_year'], 'refresh');
         }
         $this->push_payslip_data(0);
     }
@@ -44,10 +50,21 @@ public function index() {
         if ($this->input->post('emp_id')) {
             $data=$this->storeinputs();
             $this->payslip->update($data, $id);
-            redirect('/admin/payslips', 'refresh');
+            redirect('/admin/payslips/index/'.$data['pay_month'].'/'.$data['pay_year'], 'refresh');
         }
 
-        $payslip = $this->payslip->get($id);
+        //$payslip1 = $this->payslip->get($id);
+        
+        $this->db->select('p.*, e.starting_salary');
+        $this->db->from('payslips p, employees e');
+        $this->db->where('p.emp_id = e.id');
+        $this->db->where('p.id = '.$id);
+        
+         $payslip= $this->db->get()->row();
+   
+        
+        //return $this->db->get_where($this->table_name, array($this->primary_key => $id))->row();
+        
         $data['allowances']=$this->allowance->get_all();
         $data['deductions']=$this->deduction->get_all();
         $data['departments']=$this->department->get_all();
@@ -56,7 +73,7 @@ public function index() {
         $data['employees'] = $query->result_array();
         $data["months"] = $this->month->get_all();        
         $data['payslip'] = $payslip;
-        $data['net_salary'] = number_format($payslip->salary+$payslip->allowance_amt_1+$payslip->allowance_amt_2+$payslip->allowance_amt_3
+        $data['net_salary'] = number_format($payslip->starting_salary+$payslip->allowance_amt_1+$payslip->allowance_amt_2+$payslip->allowance_amt_3
                 -$payslip->deduction_amt_1-$payslip->deduction_amt_2-$payslip->deduction_amt_3, 2);
         
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_edit";
@@ -85,6 +102,7 @@ public function index() {
         $data['allowances']=$this->allowance->get_all();
         $data['deductions']=$this->deduction->get_all();
         $data['departments']=$this->department->get_all();
+        $data["months"] = $this->month->get_all();
         
         $data['page'] = $this->config->item('ci_my_admin_template_dir_admin') . "payslips_create";
         $this->load->view($this->_container, $data);

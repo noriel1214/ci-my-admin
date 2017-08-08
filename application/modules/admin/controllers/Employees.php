@@ -64,7 +64,8 @@ public function index() {
         //print json_encode($query);
         
         $output = $this->employee->get($emp_id)->starting_salary;
-        print $output;
+        $output = number_format($output, 2, ".", ",");
+        print json_encode($output);
 
     }
     

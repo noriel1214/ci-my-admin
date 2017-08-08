@@ -295,7 +295,7 @@
                                 <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-paypal fa-fw"></i> Payroll <span class="caret"></span></span></a>
                                 <ul class="nav nav-stacked collapse left-submenu" id="item1">
                                     <li><a href="<?= base_url('admin/payslips/create') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-money fa-fw"></i> Create Payslip</a></li>
-                                    <li><a href="<?= base_url('admin/payslips') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-money fa-fw"></i> View Payslips</a></li>
+                                    <li><a href="<?= base_url('admin/payslips/index/'.date("m").'/'.date("Y")) ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-money fa-fw"></i> View Payslips</a></li>
                                     <li><a href="<?= base_url('admin/allowances') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope fa-fw"></i> Allowances</a></li>
                                     <li><a href="<?= base_url('admin/deductions') ?>">&nbsp;&nbsp;&nbsp;<i class="fa fa-minus fa-fw"></i> Deductions</a></li>
                                 </ul>

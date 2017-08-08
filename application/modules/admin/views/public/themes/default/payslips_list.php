@@ -10,6 +10,33 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
+    <div class="row">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <label>Month</label>
+                                <select required id="pay_month" name="pay_month" class="form-control">
+                                    <?php foreach($months as $month): ?>
+                                    <option <?php if($pay_month == $month["id"]){echo "selected";} ?> value="<?php echo $month['id'] ?>"><?php echo $month['month_name'] ?></option>
+                                    <?php endforeach;  ?>
+                                </select>
+                            </div>  
+                            <div class="col-sm-3">
+                                <label>Year</label>
+                                <select required id="pay_year" name="pay_year" class="form-control">
+                                    <?php
+                                    for($i = date('Y')-1; $i <= date('Y') + 10; $i++){
+                                            echo "<option ".($pay_year==$i?"selected":"")." value='".$i."'>".$i."</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+        <div class="col-sm-2">
+            <label>&nbsp;</label>
+            <a href="#" class="btn btn-info search-payslip form-control">Search</a>
+        </div>
+        
+    </div>
+    <div class="row">&nbsp;</div>
+    
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
